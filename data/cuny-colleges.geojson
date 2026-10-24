@@ -1,0 +1,837 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "campus_id": 1,
+        "name": "Borough of Manhattan Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Manhattan",
+        "address": "199 Chambers Street",
+        "website": "https://www.bmcc.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.012178,
+          40.717367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+        "campus_id": 2,
+        "name": "Bronx Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Bronx",
+        "address": "2155 University Avenue",
+        "website": "https://www.bcc.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.910127,
+          40.856673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+        "campus_id": 3,
+        "name": "Hostos Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Bronx",
+        "address": "500 Grand Concourse",
+        "website": "http://hostos.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.926862,
+          40.817828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+        "campus_id": 4,
+        "name": "Kingsborough Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Brooklyn",
+        "address": "2001 Oriental Boulevard",
+        "website": "http://kbcc.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.934465,
+          40.578349
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "properties": {
+        "campus_id": 5,
+        "name": "LaGuardia Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Queens",
+        "address": "31-10 Thomson Avenue",
+        "website": "https://www.laguardia.edu/",
+        "survey_year": 2024,
+        "homelessness_pct": 5,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": 40,
+        "underpaid_rent_pct": 21,
+        "homelessness_2022_pct": null,
+        "sample_size": 747,
+        "response_rate_pct": 14.9,
+        "survey_source": "https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf",
+        "method_note": "Published campus survey percentages. 747 total respondents; item sample sizes may differ. Past-12-month self-report. Weighting details and confidence intervals not established in this project.",
+        "source_pages": "Printed pages 1 and 11",
+        "support_name": "LaGuardia CARES (catalog description)",
+        "support_url": "https://laguardia.catalog.cuny.edu/student-programs-and-services/student-services/overview"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.935154,
+          40.743951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "properties": {
+        "campus_id": 6,
+        "name": "Queensborough Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Queens",
+        "address": "222-05 56th Avenue",
+        "website": "https://www.qcc.cuny.edu/",
+        "survey_year": 2024,
+        "homelessness_pct": 4,
+        "housing_insecurity_pct": 38,
+        "rent_increase_difficulty_pct": 31,
+        "underpaid_rent_pct": 17,
+        "homelessness_2022_pct": 2,
+        "sample_size": 474,
+        "response_rate_pct": 12,
+        "survey_source": "https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf",
+        "method_note": "College-level weighted survey results. 474 total respondents; item sample sizes may differ. Past-12-month self-report, not an administrative count. No confidence intervals supplied here.",
+        "source_pages": "Printed pages 5, 21\u201323; executive summary page 3",
+        "support_name": "Advocacy Resource Center",
+        "support_url": "https://www.qcc.cuny.edu/arc/index.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.75755,
+          40.75615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "properties": {
+        "campus_id": 7,
+        "name": "Guttman Community College",
+        "institution_type": "Community Colleges",
+        "borough": "Manhattan",
+        "address": "50 West 40th Street",
+        "website": "https://guttman.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984133,
+          40.752846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "properties": {
+        "campus_id": 8,
+        "name": "Medgar Evers College",
+        "institution_type": "Comprehensive Colleges",
+        "borough": "Brooklyn",
+        "address": "1650 Bedford Avenue",
+        "website": "http://mec.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.957349,
+          40.66624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "properties": {
+        "campus_id": 9,
+        "name": "New York City College of Technology",
+        "institution_type": "Comprehensive Colleges",
+        "borough": "Brooklyn",
+        "address": "300 Jay Street",
+        "website": "https://www.citytech.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.987882,
+          40.695507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "properties": {
+        "campus_id": 10,
+        "name": "College of Staten Island",
+        "institution_type": "Comprehensive Colleges",
+        "borough": "Staten Island",
+        "address": "2800 Victory Boulevard",
+        "website": "http://csi.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.153563,
+          40.608648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "properties": {
+        "campus_id": 11,
+        "name": "School of Labor and Urban Studies",
+        "institution_type": "Graduate Colleges",
+        "borough": "Manhattan",
+        "address": "25 West 43rd Street, 19th Floor",
+        "website": "https://slu.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98184,
+          40.75541
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "properties": {
+        "campus_id": 12,
+        "name": "School of Law",
+        "institution_type": "Graduate Colleges",
+        "borough": "Queens",
+        "address": "2 Court Square",
+        "website": "http://law.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.943676,
+          40.747639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "properties": {
+        "campus_id": 13,
+        "name": "The Graduate School and University Center",
+        "institution_type": "Graduate Colleges",
+        "borough": "Manhattan",
+        "address": "365 5th Avenue",
+        "website": "http://gc.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984205,
+          40.748724
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "properties": {
+        "campus_id": 14,
+        "name": "School of Professional Studies",
+        "institution_type": "Graduate Colleges",
+        "borough": "Manhattan",
+        "address": "119 West 31st Street",
+        "website": "https://sps.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.989723,
+          40.748151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "properties": {
+        "campus_id": 15,
+        "name": "School of Public Health",
+        "institution_type": "Graduate Colleges",
+        "borough": "Manhattan",
+        "address": "55 W 125th Street",
+        "website": "http://sph.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9442,
+          40.80771
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 16,
+      "properties": {
+        "campus_id": 16,
+        "name": "School of Journalism",
+        "institution_type": "Graduate Colleges",
+        "borough": "Manhattan",
+        "address": "219 West 40th Street",
+        "website": "http://journalism.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.988846,
+          40.755343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 17,
+      "properties": {
+        "campus_id": 17,
+        "name": "Macaulay Honors College",
+        "institution_type": "Honors Colleges",
+        "borough": "Manhattan",
+        "address": "35 West 67th Street",
+        "website": "https://macaulay.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9802,
+          40.77384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 18,
+      "properties": {
+        "campus_id": 18,
+        "name": "Baruch College",
+        "institution_type": "Senior Colleges",
+        "borough": "Manhattan",
+        "address": "55 Lexington Ave at 24th Street",
+        "website": "http://baruch.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.984252,
+          40.740977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 19,
+      "properties": {
+        "campus_id": 19,
+        "name": "Brooklyn College",
+        "institution_type": "Senior Colleges",
+        "borough": "Brooklyn",
+        "address": "2900 Bedford Avenue",
+        "website": "http://brooklyn.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.955545,
+          40.630276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 20,
+      "properties": {
+        "campus_id": 20,
+        "name": "The City College of New York",
+        "institution_type": "Senior Colleges",
+        "borough": "Manhattan",
+        "address": "160 Convent Avenue",
+        "website": "http://ccny.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.949518,
+          40.819548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 21,
+      "properties": {
+        "campus_id": 21,
+        "name": "School of Medicine",
+        "institution_type": "Senior Colleges",
+        "borough": "Manhattan",
+        "address": "160 Convent Avenue",
+        "website": "http://www.ccny.cuny.edu/csom",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.949518,
+          40.819548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 22,
+      "properties": {
+        "campus_id": 22,
+        "name": "Hunter College",
+        "institution_type": "Senior Colleges",
+        "borough": "Manhattan",
+        "address": "695 Park Avenue",
+        "website": "http://hunter.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.964915,
+          40.768731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 23,
+      "properties": {
+        "campus_id": 23,
+        "name": "John Jay College of Criminal Justice",
+        "institution_type": "Senior Colleges",
+        "borough": "Manhattan",
+        "address": "524 West 59th Street",
+        "website": "http://jjay.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.986469,
+          40.769939
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 24,
+      "properties": {
+        "campus_id": 24,
+        "name": "Lehman College",
+        "institution_type": "Senior Colleges",
+        "borough": "Bronx",
+        "address": "250 Bedford Park Boulevard West",
+        "website": "https://www.lehman.cuny.edu/",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.889361,
+          40.873442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 25,
+      "properties": {
+        "campus_id": 25,
+        "name": "Queens College",
+        "institution_type": "Senior Colleges",
+        "borough": "Queens",
+        "address": "65-30 Kissena Blvd",
+        "website": "http://qc.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.820035,
+          40.736316
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 26,
+      "properties": {
+        "campus_id": 26,
+        "name": "York College",
+        "institution_type": "Senior Colleges",
+        "borough": "Queens",
+        "address": "94-20 Guy R. Brewer Boulevard",
+        "website": "http://york.cuny.edu",
+        "survey_year": null,
+        "homelessness_pct": null,
+        "housing_insecurity_pct": null,
+        "rent_increase_difficulty_pct": null,
+        "underpaid_rent_pct": null,
+        "homelessness_2022_pct": null,
+        "sample_size": null,
+        "response_rate_pct": null,
+        "survey_source": null,
+        "method_note": "Campus survey results have not yet been verified in this project.",
+        "source_pages": null,
+        "support_name": null,
+        "support_url": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.795776,
+          40.702821
+        ]
+      }
+    }
+  ]
+}
