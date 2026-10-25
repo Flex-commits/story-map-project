@@ -1,3 +1,4 @@
+import { evidenceStatuses } from './evidence.js';
 export const typeColors = {
   'Community Colleges': '#267b91',
   'Comprehensive Colleges': '#77629a',
@@ -31,18 +32,25 @@ export function campusCard(properties) {
   card.append(heading);
   line(card, `${properties.borough} · ${properties.institution_type}`);
   line(card, properties.address);
+  line(card, `Evidence review: ${evidenceStatuses[properties.evidence_status] || 'Not yet checked'}. ${properties.review_note || ''}`);
   if (properties.survey_year) {
     for (const [label, field] of [['Homelessness', 'homelessness_pct'], ['Housing insecurity', 'housing_insecurity_pct'], ['Rent increase difficulty', 'rent_increase_difficulty_pct'], ['Unable to pay / underpaid rent', 'underpaid_rent_pct']]) {
       line(card, `${label}: ${properties[field] === null ? 'Not verified here' : `${properties[field]}%`}`);
     }
     line(card, `Spring ${properties.survey_year} · past 12 months. Total survey respondents: ${properties.sample_size}; response rate: ${properties.response_rate_pct}%.`);
-    line(card, properties.method_note);
+    line(card, `Question: “${properties.question_wording}” Reference period: ${properties.recall_period}. Population: ${properties.survey_population}.`);
+    line(card, properties.weighting);
+    line(card, properties.uncertainty_note);
+    if (properties.housing_insecurity_definition) line(card, properties.housing_insecurity_definition);
     const source = document.createElement('a');
     source.href = properties.survey_source;
     source.textContent = `Survey source · ${properties.source_pages} ↗`;
     card.append(source);
   } else {
     line(card, 'A campus homelessness figure has not yet been verified in this project. This does not mean no students experience homelessness.');
+  }
+  if (!properties.survey_year && properties.review_source) {
+    const reviewed = document.createElement('a'); reviewed.href = properties.review_source; reviewed.textContent = 'Reviewed campus source ↗'; card.append(reviewed);
   }
   if (properties.support_url) {
     const support = document.createElement('a');
@@ -92,8 +100,9 @@ export class CollegeExplorer {
     const search = document.querySelector('#campus-search').value.trim().toLowerCase();
     const borough = document.querySelector('#campus-borough').value;
     const verified = document.querySelector('#campus-verified').checked;
+    const review = document.querySelector('#campus-evidence-status').value;
     this.filtered = { type: 'FeatureCollection', features: this.collection.features.filter(({ properties: p }) => {
-      return (!borough || p.borough === borough)
+      return (!review || p.evidence_status === review) && (!borough || p.borough === borough)
         && (!search || `${p.name} ${p.borough} ${p.address}`.toLowerCase().includes(search))
         && (!verified || (this.metric === 'institution_type' ? p.survey_year !== null : p[this.metric] !== null));
     }) };

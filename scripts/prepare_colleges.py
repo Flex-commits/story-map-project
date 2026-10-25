@@ -30,6 +30,7 @@ SOURCES = {
   'support_url': 'https://laguardia.catalog.cuny.edu/student-programs-and-services/student-services/overview',
  },
 }
+review = json.loads((ROOT / 'data/raw/evidence/campus-review.json').read_text())
 rows = json.loads((ROOT / 'data/raw/cuny-campus-locations.json').read_text())
 features = []
 for index, row in enumerate(rows):
@@ -40,8 +41,25 @@ for index, row in enumerate(rows):
           homelessness_pct=None, housing_insecurity_pct=None, rent_increase_difficulty_pct=None, underpaid_rent_pct=None,
           homelessness_2022_pct=None, sample_size=None, response_rate_pct=None, survey_source=None,
           method_note='Campus survey results have not yet been verified in this project.', source_pages=None, support_name=None, support_url=None)
+ p.update(evidence_status='not_yet_checked', review_source=None,
+          review_note='A campus-specific report has not yet been checked.', reviewed_on=review['reviewed_on'],
+          survey_population=None, recall_period=None, question_wording=None, item_sample_size=None,
+          weighting=None, uncertainty_note=None, housing_insecurity_definition=None)
+ if p['name'] in review['campuses']:
+  checked = review['campuses'][p['name']]
+  p.update(evidence_status=checked['status'], review_source=checked['url'], review_note=checked['note'])
  if p['name'] in SOURCES:
   p.update(SOURCES[p['name']]); p['survey_year'] = 2024
+  p.update(evidence_status='available', review_source=p['survey_source'],
+           review_note='Campus figures checked against the published 2024 report.',
+           survey_population='Degree-seeking undergraduate survey respondents',
+           recall_period='Past 12 months, asked in spring 2024', question_wording='Have you been homeless?',
+           weighting='College-level post-stratification raking; central CUNY SES methods reviewed',
+           uncertainty_note='No confidence intervals or significance tests established here; total respondents are not item denominators.')
+  p['method_note'] = 'Weighted campus survey percentages, not administrative counts. Item denominators can vary; differences are not established as statistically significant.'
+  if p['name'] == 'Queensborough Community College':
+   p['housing_insecurity_definition'] = 'Yes to at least one of four past-year items: difficult rent increase, unpaid/underpaid rent, unpaid utility bill, or homelessness. This composite includes the homelessness item.'
+
  coords=[float(row['long']), float(row['lat'])]
  assert -75 < coords[0] < -73 and 40 < coords[1] < 42
  features.append(dict(type='Feature', id=p['campus_id'], properties=p, geometry=dict(type='Point', coordinates=coords)))

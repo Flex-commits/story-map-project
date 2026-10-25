@@ -1,0 +1,30 @@
+[
+  {
+    "name": "dcp-archives",
+    "url": "https://www.nyc.gov/content/planning/pages/resources/datasets/school-districts",
+    "title": "Access Denied",
+    "reviewed_on": "2026-10-24",
+    "observation": "Public browser request returned Access Denied; no historical archive retrieved."
+  },
+  {
+    "name": "cuny-survey",
+    "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/Intro?:embed=y&:isGuestRedirectFromVizportal=y",
+    "title": "Workbook: 2026 Student Experience Survey",
+    "reviewed_on": "2026-10-24",
+    "observation": "Public introduction reviewed. Spring 2024 undergraduate sample, response rates, raking weights, variable item denominators, and suppression threshold verified. See campus-review.json for the method summary."
+  },
+  {
+    "name": "queens-college",
+    "url": "https://www.qc.cuny.edu/oie/surveys/",
+    "title": "Survey Research | Institutional Effectiveness",
+    "reviewed_on": "2026-10-24",
+    "observation": "Survey page reviewed; it links 2022 SES and separate wellness/new-student surveys. No comparable 2024 campus homelessness figure established."
+  },
+  {
+    "name": "graduate-center",
+    "url": "https://www.gc.cuny.edu/institutional-research-and-effectiveness/newsletters-and-reports",
+    "title": "Attention Required! | Cloudflare",
+    "reviewed_on": "2026-10-24",
+    "observation": "Browser access was blocked. The public search-reader separately exposed report listings and a specifically login-restricted internal portal; no comparable rate established."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "reviewed_on": "2026-10-24",
+  "sources": [
+    {"id":"sirs_workbook","url":"https://www.nysteachs.org/grantees","download":"https://www.nysteachs.org/_files/ugd/60b30b_705222e6c2654836a50931c50c6da244.xlsx?dn=SED-SIRS-3-Year-Summary-2022-2024.xlsx","use":"2021–22 to 2023–24 reporting-LEA counts","check":"Published file is byte-identical to supplied file; all 10,530 cells match."},
+    {"id":"nyc_definition","url":"https://www.schools.nyc.gov/school-life/special-situations/students-in-temporary-housing/","use":"School definition and published support descriptions","check":"Public guidance reviewed; service availability is not verified."},
+    {"id":"sirs_manual","url":"https://www.nysed.gov/sites/default/files/programs/information-reporting-services/sirs-manual-2023-2024.pdf","use":"Printed pages 52 and 64; reporting fields and homeless program code","check":"Downloaded and text reviewed. Not the exact workbook aggregation specification."},
+    {"id":"afc_rates","url":"https://advocatesforchildren.org/wp-content/uploads/2024/nyc_student_homelessness_2024.pdf","use":"Page 1 denominator note; page 2 district categories","check":"32 categories transcribed and reviewed against rendered page; no exact rates inferred."},
+    {"id":"dcp_boundaries","url":"https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u","use":"26b (2026) reference polygons","check":"IDs and ring closure checked. Historical archive inaccessible; no stability claim."},
+    {"id":"cuny_central","url":"https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/Intro","use":"Methods for spring 2024 undergraduate survey","check":"Public browser review. Default AllResults export is 2026 academic-experience data; no extra campus values inferred."},
+    {"id":"qcc_survey","url":"https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf","use":"2024 campus self-report percentages and four-item composite","check":"Printed pages 3, 5, 21–23 reviewed; item denominators and uncertainty not inferred."},
+    {"id":"laguardia_survey","url":"https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf","use":"2024 campus self-report percentages","check":"Printed pages 1 and 11 reviewed; no composite figure assigned."},
+    {"id":"afc_outcomes","url":"https://advocatesforchildren.org/policy-resource/sth-educational-indicators-2023/","brief":"https://advocatesforchildren.org/wp-content/uploads/2024/sth_edu_indicators_2023.pdf","use":"2022–23 attendance and 2023 four-year graduation comparisons","check":"Separate NYCPS analysis; charter pupils excluded; associations not causal estimates."},
+    {"id":"bcc_account","url":"https://www.bcc.cuny.edu/a-veterans-journey-from-a-homeless-shelter-to-columbia-university/","use":"Attributed September 10, 2026 published account","check":"Public article reviewed. Not a project interview or linked cohort record; no personal route mapped."},
+    {"id":"cuny_support","url":"https://www.cuny.edu/about/administration/offices/student-affairs/programs-services/cuny-resource-centers/","use":"Published description of campus assistance","check":"Current availability, eligibility, and outcomes not established."}
+  ]
+}

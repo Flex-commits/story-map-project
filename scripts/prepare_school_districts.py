@@ -60,6 +60,17 @@ def rounded(value):
 
 def main():
     districts = read_districts(sys.argv[1])
+    rates = json.loads((ROOT / 'data/raw/evidence/afc-rate-bands-2023-24.json').read_text())
+    assigned = set()
+    for band, ids in enumerate(rates['districts_by_band']):
+        for district in ids:
+            assert district not in assigned
+            assigned.add(district)
+            districts[district].update(afc_rate_band_2023_24=band, afc_rate_band_label=rates['bands'][band],
+                                      afc_rate_source=rates['source_url'],
+                                      count_basis='Annual students identified by reporting LEA; not residence counts',
+                                      boundary_vintage='NYC DCP 26b (2026); historical consistency not established')
+    assert assigned == set(range(1, 33))
     raw = json.loads((ROOT / 'data/raw/nyc-school-districts.geojson').read_text())
     polygons = {}
     for feature in raw['features']:

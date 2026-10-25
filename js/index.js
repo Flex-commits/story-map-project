@@ -1,3 +1,4 @@
+import { RATE_METRIC, RATE_BINS, RATE_NOTE, GEOGRAPHY_NOTE } from './evidence.js';
 import { SlideDeck } from './slidedeck.js';
 import { AtlasExplorer } from './atlas-explorer.js';
 import { CollegeExplorer, collegeColor, campusCard, metrics, typeColors } from './colleges.js';
@@ -19,17 +20,18 @@ const changeBins = [
   { max: 100, color: '#c77b50', label: '50–<100%' },
   { max: Infinity, color: '#9b402e', label: '100% or more' },
 ];
-const binsFor = (slide) => slide.id === 'change' ? changeBins : countBins;
+const binsFor = (slide) => slide.dataset.metric === RATE_METRIC ? RATE_BINS : slide.id === 'change' ? changeBins : countBins;
 const colorFor = (value, bins) => value === null ? '#cccccc' : bins.find((bin) => value < bin.max).color;
 
 function renderLegend(slide) {
   const isCollege = slide.dataset.layer === 'colleges';
   const metric = document.querySelector('#campus-metric').value;
   document.querySelector('#map-title').textContent = `${isCollege ? 'CUNY institution locations' : 'NYC school districts'} / ${slide.dataset.year}`;
-  document.querySelector('#legend-title').textContent = isCollege ? (metric === 'institution_type' ? 'CUNY institution type' : metrics[metric].title) : slide.id === 'change' ? 'Change in reported count (%)' : `Reported students · ${slide.dataset.year}`;
+  document.querySelector('#legend-title').textContent = isCollege ? (metric === 'institution_type' ? 'CUNY institution type' : metrics[metric].title) : slide.dataset.metric === RATE_METRIC ? 'AFC estimated share · 2023–24 (ranges)' : slide.id === 'change' ? 'Change in reported count (%)' : `Reported students · ${slide.dataset.year}`;
   const items = document.querySelector('#legend-items');
   items.replaceChildren();
-  document.querySelector('.legend small').textContent = isCollege ? 'Campus locations · not student residences' : 'School reporting districts · not home locations';
+  document.querySelector('.legend small').textContent = isCollege ? 'Campus locations · not student residences' : slide.dataset.metric === RATE_METRIC ? 'AFC published analysis · current reference boundaries' : 'Reporting LEAs · not residence locations';
+  document.querySelector('#map-method-text').textContent = isCollege ? 'Campus locations, not residences. Spring 2024 degree-seeking undergraduate surveys ask about the past 12 months. Two campus profiles are verified; a review status does not imply zero homelessness or that no public evidence exists.' : slide.dataset.metric === RATE_METRIC ? `${RATE_NOTE} DCP 2026 reference boundaries; historical consistency not established.` : GEOGRAPHY_NOTE;
   const entries = isCollege ? metric === 'institution_type' ? Object.entries(typeColors).map(([label, color]) => ({ label, color })) : [...metrics[metric].bins, { color: '#89918e', label: 'Not verified in this project' }] : [...binsFor(slide), { color: '#cccccc', label: 'Unavailable' }];
   for (const bin of entries) {
     const row = document.createElement('div');
@@ -59,6 +61,10 @@ function popup(properties) {
     line.textContent = `${label}: ${value}`;
     container.append(line);
   }
+  const method = document.createElement('p');
+  method.textContent = `${GEOGRAPHY_NOTE} AFC estimated share in 2023–24: ${properties.afc_rate_band_label}. ${RATE_NOTE}`;
+  container.append(method);
+  const source = document.createElement('a'); source.href = properties.afc_rate_source; source.textContent = 'AFC rate methods ↗'; container.append(source);
   container.append(exploreButton('districts', properties.district));
   return container;
 }
@@ -186,7 +192,7 @@ if (typeof L === 'undefined') {
       onEachFeature: (feature, layer) => {
         layer.on('mouseover', () => layer.setStyle({ weight: 2.5, color: '#382d27', fillOpacity: 0.95 }));
         layer.on('mouseout', () => layer.setStyle(slideOptions[slide.id].style(feature)));
-        layer.bindTooltip(`District ${feature.properties.district}: ${format(feature.properties[slide.dataset.metric])}${slide.id === 'change' ? '%' : ' students'}`);
+        layer.bindTooltip(`District ${feature.properties.district}: ${slide.dataset.metric === RATE_METRIC ? feature.properties.afc_rate_band_label + ' (AFC estimate)' : format(feature.properties[slide.dataset.metric]) + (slide.id === 'change' ? '% count change' : ' identified by LEA')}`);
         layer.bindPopup(popup(feature.properties));
       },
     };
@@ -240,6 +246,10 @@ if (typeof L === 'undefined') {
       slides[index].scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     });
   }
+  document.querySelector('#show-published-rates').addEventListener('click', () => {
+    const slide = document.querySelector('#consequences');
+    slide.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  });
   let scheduled = false;
   document.addEventListener('scroll', () => {
     updateProgress();

@@ -1,3 +1,4 @@
+import { RATE_METRIC, RATE_BINS, RATE_NOTE, GEOGRAPHY_NOTE } from './evidence.js';
 import { campusCard, collegeColor, metrics, typeColors } from './colleges.js';
 
 const YEARS = ['2021_22', '2022_23', '2023_24'];
@@ -48,7 +49,7 @@ export class AtlasExplorer {
     this.previousFocus = null;
     this.loading = null;
     this.colors = ['#a45432', '#267b91', '#77558e'];
-    this.controls = Object.fromEntries(['search', 'borough', 'metric', 'year', 'sort', 'type', 'verified', 'support', 'labels'].map((name) => [name, document.querySelector(`#atlas-${name}`)]));
+    this.controls = Object.fromEntries(['search', 'borough', 'metric', 'year', 'sort', 'type', 'verified', 'support', 'labels', 'evidence-status'].map((name) => [name, document.querySelector(`#atlas-${name}`)]));
     document.querySelectorAll('[data-open-explorer]').forEach((button) => button.addEventListener('click', () => this.open()));
     document.querySelector('#atlas-close').addEventListener('click', () => this.dialog.close());
     this.dialog.addEventListener('keydown', (event) => {
@@ -66,7 +67,7 @@ export class AtlasExplorer {
         if (name === 'year') this.pause();
         if (name !== 'labels' && this.selected) this.selected = null;
         this.render();
-        if (['search', 'borough', 'type', 'verified', 'support'].includes(name)) this.fit();
+        if (['search', 'borough', 'type', 'verified', 'support', 'evidence-status'].includes(name)) this.fit();
       });
     }
     document.querySelector('#atlas-play').addEventListener('click', () => this.timer ? this.pause() : this.play());
@@ -80,7 +81,7 @@ export class AtlasExplorer {
       requestAnimationFrame(() => { this.map?.invalidateSize(); this.fit(); });
     });
     document.querySelector('#atlas-export').addEventListener('click', () => {
-      download(this.filtered.map((feature) => ({ ...feature.properties, map_measure: this.metric(), map_value: this.value(feature) })), `nyc-${this.layer}-filtered.csv`);
+      download(this.filtered.map((feature) => ({ ...feature.properties, map_measure: this.metric(), map_value: this.metric() === RATE_METRIC ? feature.properties.afc_rate_band_label : this.value(feature) })), `nyc-${this.layer}-filtered.csv`);
     });
     document.querySelector('#atlas-export-pins').addEventListener('click', () => {
       download(this.features().filter((feature) => this.pins.includes(feature.id)).map((feature) => feature.properties), `nyc-${this.layer}-comparison.csv`);
@@ -116,7 +117,7 @@ export class AtlasExplorer {
       else if (options.layer) {
         if (this.layer !== options.layer) this.switchLayer(options.layer, false);
         if (options.selected) {
-          this.controls.search.value = ''; this.controls.borough.value = ''; this.controls.type.value = '';
+          this.controls.search.value = ''; this.controls.borough.value = ''; this.controls.type.value = ''; this.controls['evidence-status'].value = '';
           this.controls.verified.checked = false; this.controls.support.checked = false; this.activeBin = null;
         }
         this.selected = options.selected ?? null;
@@ -148,13 +149,19 @@ export class AtlasExplorer {
     const metric = this.metric();
     if (metric === 'institution_type') return Object.entries(typeColors).map(([label, color]) => ({ label, color }));
     if (this.layer === 'colleges') return metrics[metric].bins;
-    return metric === 'change_pct_2021_22_to_2023_24' ? CHANGE_BINS : COUNT_BINS;
+    return metric === RATE_METRIC ? RATE_BINS : metric === 'change_pct_2021_22_to_2023_24' ? CHANGE_BINS : COUNT_BINS;
   }
 
   color(feature) {
     if (this.layer === 'colleges') return collegeColor(feature.properties, this.metric());
     const value = this.value(feature);
     return value === null ? '#89918e' : this.bins().find((bin) => value < bin.max).color;
+  }
+
+  displayValue(feature) {
+    if (this.metric() === RATE_METRIC) return `${feature.properties.afc_rate_band_label} (AFC estimate)`;
+    const value = this.value(feature);
+    return value === null ? 'Not verified' : typeof value === 'number' ? `${fmt(value)}${this.metric().includes('pct') ? '%' : ' identified by LEA'}` : value;
   }
 
   binIndex(feature) {
@@ -177,14 +184,14 @@ export class AtlasExplorer {
     for (const tab of document.querySelectorAll('[data-atlas-layer]')) tab.setAttribute('aria-pressed', String(tab.dataset.atlasLayer === this.layer));
     document.querySelector('#atlas-timeline').hidden = college;
     document.querySelector('#atlas-college-options').hidden = !college;
-    document.querySelector('#atlas-scope').textContent = college ? '26 CUNY institution records. Two campus survey profiles verified; other values are unknown here. Campus points are not student residences.' : '32 geographic school districts. Agency counts may duplicate students across districts. Counts are not enrollment rates or home locations.';
+    document.querySelector('#atlas-scope').textContent = college ? '26 CUNY institution records. Two campus survey profiles verified; other values are unknown here. Campus points are not student residences.' : '32 reporting LEAs; counts can duplicate students across agencies. Current reference boundaries, not residences. Published AFC rate ranges use a separate charter-inclusive analysis.';
     const old = this.controls.metric.value;
     const choices = college
       ? [
           ['homelessness_pct', 'Homelessness · 2024 (%)'], ['housing_insecurity_pct', 'Housing insecurity · 2024 (%)'],
           ['rent_increase_difficulty_pct', 'Rent increase difficulty · 2024 (%)'], ['institution_type', 'Institution type'],
         ]
-      : [[`homeless_${YEARS[Number(this.controls.year.value)]}`, 'Reported count'], ['change_pct_2021_22_to_2023_24', 'Count change · 2021–24 (%)']];
+      : [[`homeless_${YEARS[Number(this.controls.year.value)]}`, 'Reported count'], ['change_pct_2021_22_to_2023_24', 'Count change · 2021–24 (%)'], [RATE_METRIC, 'AFC share · 2023–24 (ranges)']];
     this.controls.metric.replaceChildren(...choices.map(([value, label]) => { const option = element('option', '', label); option.value = value; return option; }));
     if (choices.some(([value]) => value === old)) this.controls.metric.value = old;
     document.querySelector('#atlas-time-label').textContent = YEARS[Number(this.controls.year.value)].replace('_', '–');
@@ -193,7 +200,7 @@ export class AtlasExplorer {
   switchLayer(layer, render = true) {
     this.pause(); this.layer = layer; this.pins = []; this.selected = null; this.activeBin = null;
     this.controls.search.value = ''; this.controls.borough.value = '';
-    this.controls.verified.checked = false; this.controls.support.checked = false; this.controls.type.value = '';
+    this.controls.verified.checked = false; this.controls.support.checked = false; this.controls.type.value = ''; this.controls['evidence-status'].value = '';
     this.updateTabs();
     if (render && this.data) { this.render(); this.fit(); }
   }
@@ -201,7 +208,7 @@ export class AtlasExplorer {
   reset() {
     this.pause(); this.selected = null; this.activeBin = null; this.pins = [];
     this.controls.search.value = ''; this.controls.borough.value = ''; this.controls.sort.value = 'name';
-    this.controls.type.value = ''; this.controls.verified.checked = false; this.controls.support.checked = false;
+    this.controls.type.value = ''; this.controls['evidence-status'].value = ''; this.controls.verified.checked = false; this.controls.support.checked = false;
     this.controls.labels.checked = false; this.controls.year.value = '2';
     this.controls.metric.value = this.layer === 'colleges' ? 'homelessness_pct' : 'homeless_2023_24';
     this.updateTabs(); this.render(); this.fit();
@@ -214,10 +221,11 @@ export class AtlasExplorer {
       if (this.metric().startsWith('homeless_')) this.controls.metric.options[0].value = `homeless_${YEARS[Number(this.controls.year.value)]}`;
       document.querySelector('#atlas-time-label').textContent = YEARS[Number(this.controls.year.value)].replace('_', '–');
       this.controls.year.setAttribute('aria-valuetext', YEARS[Number(this.controls.year.value)].replace('_', '–'));
-      const growth = this.metric().startsWith('change_');
+      const growth = this.metric().startsWith('change_') || this.metric() === RATE_METRIC;
       this.controls.year.disabled = growth;
       document.querySelector('#atlas-play').disabled = growth;
       if (growth) this.pause();
+      if (this.metric() === RATE_METRIC) document.querySelector('#atlas-time-label').textContent = '2023–24 · fixed source';
     }
     const search = this.controls.search.value.trim().toLowerCase();
     this.filtered = this.features().filter((feature) => {
@@ -226,7 +234,8 @@ export class AtlasExplorer {
         && (!this.controls.borough.value || this.borough(feature) === this.controls.borough.value)
         && (this.layer !== 'colleges' || ((!this.controls.type.value || p.institution_type === this.controls.type.value)
           && (!this.controls.verified.checked || (this.metric() === 'institution_type' ? p.survey_year !== null : this.value(feature) !== null))
-          && (!this.controls.support.checked || p.support_url)))
+          && (!this.controls.support.checked || p.support_url)
+          && (!this.controls['evidence-status'].value || p.evidence_status === this.controls['evidence-status'].value)))
         && (this.activeBin === null || this.binIndex(feature) === this.activeBin);
     });
     this.filtered.sort((a, b) => {
@@ -234,6 +243,7 @@ export class AtlasExplorer {
       return this.layer === 'districts' ? a.id - b.id : this.name(a).localeCompare(this.name(b));
     });
     if (this.selected && !this.filtered.some((feature) => feature.id === this.selected)) this.selected = null;
+    document.querySelector('#atlas-method-note').textContent = this.layer === 'colleges' ? 'Past-year undergraduate survey answers, not school classifications. Review statuses distinguish checked sources from unreviewed campuses; missing figures are never zeros.' : this.metric() === RATE_METRIC ? RATE_NOTE : GEOGRAPHY_NOTE;
     this.renderMap(); this.renderLegend(); this.renderList(); this.renderDetail(); this.renderPins();
     document.querySelector('#atlas-results').textContent = `${this.filtered.length} of ${this.features().length} ${this.layer === 'colleges' ? 'institutions' : 'districts'} shown. ${this.pins.length} pinned for comparison.`;
     document.querySelector('#atlas-export').disabled = !this.filtered.length;
@@ -256,7 +266,7 @@ export class AtlasExplorer {
       pointToLayer: (feature, latlng) => L.circleMarker(latlng, { ...this.style(feature), radius: this.selected === feature.id ? 11 : 7 }),
       onEachFeature: (feature, layer) => {
         const value = this.value(feature);
-        const text = `${this.name(feature)} · ${value === null ? 'Not verified' : typeof value === 'number' ? `${fmt(value)}${this.metric().includes('pct') ? '%' : ' students'}` : value}`;
+        const text = `${this.name(feature)} · ${this.displayValue(feature)}`;
         const label = this.controls.labels.checked && this.layer === 'districts' ? `D${feature.id}` : text;
         layer.bindTooltip(label, { permanent: this.controls.labels.checked, direction: 'top', className: 'atlas-feature-label' });
         layer.on('click', () => this.select(feature.id));
@@ -264,7 +274,7 @@ export class AtlasExplorer {
         layer.on('mouseout', () => layer.setStyle(this.style(feature)));
       },
     }).addTo(this.map);
-    document.querySelector('#atlas-map-heading').textContent = this.layer === 'colleges' ? 'CUNY campus evidence · spring 2024' : this.metric().startsWith('change_') ? 'Change in counts · 2021–22 to 2023–24' : `Reported students · ${YEARS[Number(this.controls.year.value)].replace('_', '–')}`;
+    document.querySelector('#atlas-map-heading').textContent = this.layer === 'colleges' ? 'CUNY campus evidence · spring 2024' : this.metric() === RATE_METRIC ? 'AFC estimated share · 2023–24 (published ranges)' : this.metric().startsWith('change_') ? 'Change in counts · 2021–22 to 2023–24' : `Reported students · ${YEARS[Number(this.controls.year.value)].replace('_', '–')}`;
   }
 
   renderLegend() {
@@ -296,7 +306,7 @@ export class AtlasExplorer {
       const dot = element('span', 'campus-dot'); dot.style.backgroundColor = this.color(feature); dot.setAttribute('aria-hidden', 'true');
       const text = element('span', '', this.name(feature));
       const value = this.value(feature);
-      const description = element('small', '', `${this.borough(feature)} · ${value === null ? 'Not verified' : typeof value === 'number' ? `${fmt(value)}${this.metric().includes('pct') ? '%' : ' students'}` : value}`);
+      const description = element('small', '', `${this.borough(feature)} · ${this.displayValue(feature)}`);
       text.append(description); select.append(dot, text);
       select.addEventListener('click', () => this.select(feature.id, true));
       const pin = element('button', 'atlas-pin', this.pins.includes(feature.id) ? 'Pinned ✓' : '+ Compare'); pin.type = 'button';
@@ -336,6 +346,7 @@ export class AtlasExplorer {
       const p = feature.properties;
       container.append(element('h3', '', `${this.name(feature)} · ${this.borough(feature)}`));
       const rows = this.districtBars(feature, Math.max(...YEARS.map((year) => p[`homeless_${year}`] ?? 0)), '#a45432');
+      container.append(element('p', 'atlas-small', `${GEOGRAPHY_NOTE} AFC estimated share: ${p.afc_rate_band_label}. ${RATE_NOTE}`));
       container.append(rows, element('p', 'atlas-small', `${fmt(p.change_count_2021_22_to_2023_24)} more reported students; ${fmt(p.change_pct_2021_22_to_2023_24)}% change from 2021–22 to 2023–24. This is not an enrollment rate.`));
     }
   }
@@ -364,8 +375,10 @@ export class AtlasExplorer {
       card.append(element('h4', '', this.name(feature)));
       const unpin = element('button', 'atlas-unpin', 'Remove ×'); unpin.type = 'button'; unpin.setAttribute('aria-label', `Remove ${this.name(feature)} from comparison`); unpin.addEventListener('click', () => this.pin(feature.id));
       card.append(unpin);
-      if (this.layer === 'districts') card.append(this.districtBars(feature, maximum, this.colors[index]));
-      else {
+      if (this.layer === 'districts') {
+        if (this.metric() === RATE_METRIC) card.append(element('p', '', `AFC estimated share: ${feature.properties.afc_rate_band_label}`));
+        card.append(this.districtBars(feature, maximum, this.colors[index]));
+      } else {
         for (const [label, field] of [['Homelessness', 'homelessness_pct'], ['Housing insecurity', 'housing_insecurity_pct'], ['Rent difficulty', 'rent_increase_difficulty_pct']]) card.append(element('p', '', `${label}: ${feature.properties[field] === null ? 'Not verified' : `${feature.properties[field]}%`}`));
         card.append(element('p', 'atlas-small', feature.properties.survey_year ? `Spring 2024 · n=${feature.properties.sample_size} total respondents · response ${feature.properties.response_rate_pct}%` : 'No campus survey verified here.'));
         if (feature.properties.survey_source) { const a = element('a', '', 'Read survey ↗'); a.href = feature.properties.survey_source; card.append(a); }
@@ -384,7 +397,7 @@ export class AtlasExplorer {
   }
 
   play() {
-    if (this.layer !== 'districts' || this.metric().startsWith('change_')) return;
+    if (this.layer !== 'districts' || this.metric().startsWith('change_') || this.metric() === RATE_METRIC) return;
     document.querySelector('#atlas-play').textContent = 'Pause years'; document.querySelector('#atlas-play').setAttribute('aria-pressed', 'true');
     this.timer = setInterval(() => { this.controls.year.value = String((Number(this.controls.year.value) + 1) % 3); this.activeBin = null; this.render(); }, 1800);
   }
@@ -397,7 +410,7 @@ export class AtlasExplorer {
   async share() {
     const url = new URL(location.href); const params = new URLSearchParams();
     params.set('explore', '1'); params.set('layer', this.layer); params.set('year', this.controls.year.value); params.set('metric', this.metric());
-    for (const name of ['search', 'borough', 'sort', 'type']) if (this.controls[name].value) params.set(name, this.controls[name].value);
+    for (const name of ['search', 'borough', 'sort', 'type', 'evidence-status']) if (this.controls[name].value) params.set(name, this.controls[name].value);
     for (const name of ['verified', 'support', 'labels']) if (this.controls[name].checked) params.set(name, '1');
     if (this.activeBin !== null) params.set('bin', String(this.activeBin));
     if (this.selected !== null) params.set('selected', String(this.selected));
@@ -412,7 +425,7 @@ export class AtlasExplorer {
     this.controls.year.value = ['0', '1', '2'].includes(params.get('year')) ? params.get('year') : '2';
     this.updateTabs();
     if ([...this.controls.metric.options].some((option) => option.value === params.get('metric'))) this.controls.metric.value = params.get('metric');
-    for (const name of ['search', 'borough', 'sort', 'type']) {
+    for (const name of ['search', 'borough', 'sort', 'type', 'evidence-status']) {
       const control = this.controls[name]; const value = params.get(name) ?? '';
       if (name === 'search' || [...control.options].some((option) => option.value === value)) control.value = value;
     }

@@ -14,17 +14,20 @@
 <body>
   <a class="skip-link" href="#story">Skip to the story</a>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
-  <header class="masthead"><a href="#introduction">A school to keep<span> / NYC</span></a><div class="story-navigation" role="group" aria-label="Navigate story chapters"><button type="button" id="story-previous" aria-label="Previous chapter">←</button><span id="story-position">1 / 9</span><button type="button" id="story-next" aria-label="Next chapter">→</button></div><a href="#sources">Sources &amp; data ↗</a></header>
+  <header class="masthead"><a href="#introduction">A school to keep<span> / NYC</span></a><div class="story-navigation" role="group" aria-label="Navigate story chapters"><button type="button" id="story-previous" aria-label="Previous chapter">←</button><span id="story-position">1 / 12</span><button type="button" id="story-next" aria-label="Next chapter">→</button></div><a href="#sources">Sources &amp; data ↗</a></header>
   <nav class="chapter-nav" aria-label="Story chapters">
     <a href="#introduction" aria-label="Introduction" aria-current="step"><span>00</span></a>
-    <a href="#baseline" aria-label="2021–22 baseline"><span>01</span></a>
-    <a href="#latest" aria-label="2023–24 counts"><span>02</span></a>
-    <a href="#change" aria-label="Change over time"><span>03</span></a>
-    <a href="#east-harlem" aria-label="District 4"><span>04</span></a>
-    <a href="#colleges" aria-label="College homelessness"><span>05</span></a>
-    <a href="#college-detail" aria-label="Queensborough case study"><span>06</span></a>
-    <a href="#questions" aria-label="What comes next"><span>07</span></a>
-    <a href="#sources" aria-label="Sources"><span>08</span></a>
+    <a href="#definitions" aria-label="What homelessness means"><span>01</span></a>
+    <a href="#baseline" aria-label="Reporting agency baseline"><span>02</span></a>
+    <a href="#latest" aria-label="Later agency counts"><span>03</span></a>
+    <a href="#change" aria-label="Count changes"><span>04</span></a>
+    <a href="#east-harlem" aria-label="District 4"><span>05</span></a>
+    <a href="#consequences" aria-label="Published rates and educational outcomes"><span>06</span></a>
+    <a href="#colleges" aria-label="College evidence"><span>07</span></a>
+    <a href="#college-detail" aria-label="Queensborough methods"><span>08</span></a>
+    <a href="#voices" aria-label="A published student account"><span>09</span></a>
+    <a href="#questions" aria-label="Support and next questions"><span>10</span></a>
+    <a href="#sources" aria-label="Data and sources"><span>11</span></a>
   </nav>
   <main>
     <div class="map-container" aria-label="Interactive school district map">
@@ -32,9 +35,9 @@
       <div class="atlas-heading" aria-hidden="true"><span>HOUSING, EDUCATION &amp; NEW YORK CITY</span><p>New York,<br><em>in between.</em></p></div>
       <div class="compass" aria-hidden="true"><span>N</span><svg viewBox="0 0 40 70"><path d="M20 8 29 49 20 40 11 49Z" fill="none" stroke="currentColor"/><path d="M20 8V62M11 49 20 40 29 49" fill="none" stroke="currentColor"/></svg></div>
       <div class="map-actions"><button type="button" data-open-explorer>Explore &amp; compare ↗</button><button type="button" id="story-map-reset">Reset view</button></div>
-      <div class="atlas-folio" aria-hidden="true"><span>NEW YORK CITY · 40°43′ N / 73°56′ W</span><span id="map-folio">PLATE 00 / 08</span></div>
+      <div class="atlas-folio" aria-hidden="true"><span>NEW YORK CITY · 40°43′ N / 73°56′ W</span><span id="map-folio">PLATE 00 / 11</span></div>
       <div class="map-caption"><span class="map-dot"></span><span id="map-title">Loading district boundaries…</span></div>
-      <aside class="legend" aria-label="Map legend"><strong id="legend-title">Students identified as homeless</strong><div id="legend-items"></div><small>School reporting districts · not home locations</small></aside>
+      <aside class="legend" aria-label="Map legend"><strong id="legend-title">Students identified as homeless</strong><div id="legend-items"></div><small>Reporting LEAs · not residence locations</small><details class="map-method"><summary>How to read this view</summary><p id="map-method-text">Annual reporting-agency counts on 2026 reference boundaries. Historical boundary consistency has not been established.</p></details></aside>
       <p id="map-status" class="map-status" role="status" aria-live="polite">Loading map data…</p>
     </div>
     <section class="slide-section" id="story" aria-label="Story chapters">
@@ -44,48 +47,70 @@
         <h1>A stable<br><em>home.</em><br>A school<br>to <em>keep.</em></h1>
         <svg class="ink-flourish" viewBox="0 0 310 38" aria-hidden="true"><path d="M5 25C71 6 200 7 281 15S222 37 190 25 259 4 304 9"/></svg>
         <p class="standfirst">This issue is personal to me. I want to understand how students in New York City continue their education when they do not have a stable place to live.</p>
+        <p class="definition-summary">Here, homelessness includes temporary stays with others because housing was lost or unaffordable, as well as shelters and other unstable places to sleep. <a href="#definitions">What the definitions include ↓</a></p>
         <div class="byline">A story map by Thomas Hagos<br><span>School years 2021–22 to 2023–24</span></div>
         <p class="reading-note">Scroll to follow the story. Select a district on the map to explore its counts.</p>
         <button type="button" class="explore-entry" data-open-explorer>Open the interactive atlas ↗</button>
         <a class="chapter-link" href="#baseline">Begin the story <span aria-hidden="true">↓</span></a>
       </article>
+      <article class="slide" id="definitions" data-metric="homeless_2021_22" data-year="2021–22">
+        <p class="eyebrow">01 / What is being counted</p><h2>A roof is not always<br><em>a stable home.</em></h2>
+        <p>For school students, homelessness concerns whether their nighttime residence is fixed, regular, and adequate. It includes sharing someone else’s housing because of housing loss or economic hardship, living in a shelter or hotel, and sleeping in places not meant as a home.</p>
+        <p>This does not mean everyone staying with relatives is homeless. The circumstances and adequacy of the arrangement matter.</p>
+        <p><a href="https://www.schools.nyc.gov/school-life/special-situations/students-in-temporary-housing/">NYC Public Schools: students in temporary housing ↗</a></p>
+        <p class="callout">The college figures later in this story come from survey answers about the past 12 months. They are not school homelessness classifications or a count taken on one night.</p>
+        <details><summary>What the reporting rules establish</summary><p>The NYSED SIRS manual describes homeless program code 8262 and reporting of primary nighttime residence. The workbook counts students identified by each LEA during a year; transfers can lead to appearances in more than one agency’s records.</p><p><a href="https://www.nysed.gov/sites/default/files/programs/information-reporting-services/sirs-manual-2023-2024.pdf">NYSED SIRS Manual 2023–24, printed pages 52 and 64 ↗</a></p></details>
+      </article>
       <article class="slide" id="baseline" data-metric="homeless_2021_22" data-year="2021–22">
-        <p class="eyebrow">01 / Establish the baseline</p><h2>Before the headline,<br><em>there is a place.</em></h2>
-        <p>This map shows students identified as homeless by each of NYC’s 32 geographic school districts during <strong>2021–22</strong>.</p>
+        <p class="eyebrow">02 / Establish the baseline</p><h2>Before the headline,<br><em>there is a place.</em></h2>
+        <p>This map shows students identified as homeless by the 32 NYC geographic-district reporting LEAs during <strong>2021–22</strong>.</p>
         <p>Darker districts report larger counts. These are counts, not rates: a larger district may report more students simply because it serves more students.</p>
         <label class="year-explorer">Explore a school year<select id="district-year"><option value="2021_22">2021–22</option><option value="2022_23">2022–23</option><option value="2023_24">2023–24</option></select></label>
         <p id="year-explorer-note" class="reading-note" aria-live="polite">The chapter begins in 2021–22. Changing the year updates the map only.</p>
-        <p class="callout">The records describe education agencies. They do not locate individual students or their homes.</p>
+        <p class="callout">The shading represents reporting-agency counts, not where students live. These are 2026 reference boundaries; historical boundary consistency is still unresolved.</p>
       </article>
       <article class="slide" id="latest" data-metric="homeless_2023_24" data-year="2023–24">
-        <p class="eyebrow">02 / Two school years later</p><h2>Two years later,<br><em>the map deepens.</em></h2>
+        <p class="eyebrow">03 / Two school years later</p><h2>Two years later,<br><em>the map deepens.</em></h2>
         <p>The map now shows <strong>2023–24</strong>, using the same color thresholds as the baseline so the two years can be compared.</p>
         <figure class="comparison" data-chart-district="24"><figcaption>District 24 · Queens</figcaption><div class="chart-bars"></div></figure>
         <p>For example, District 24 in Queens reported <strong>11,702</strong> students, compared with <strong>7,388</strong> in 2021–22.</p>
         <p>This dataset does not distinguish the reasons for an increase. It cannot tell us how much reflects housing conditions, enrollment changes, student movement, or changes in identification.</p>
       </article>
       <article class="slide" id="change" data-metric="change_pct_2021_22_to_2023_24" data-year="2021–22 → 2023–24">
-        <p class="eyebrow">03 / A different view</p><h2>The same city.<br><em>A different lens.</em></h2>
+        <p class="eyebrow">04 / A different view</p><h2>The same city.<br><em>A different lens.</em></h2>
         <p>Here, color represents the <strong>percentage change in the reported count</strong> between the first and last school years.</p>
         <div class="stat">+131%<span>change in District 30’s reported count</span></div>
         <p>District 30 in Queens rose from <strong>3,684 to 8,512</strong>, about a <strong>131% increase</strong>. A fast-growing count is a signal to investigate, not an explanation of what happened.</p>
-        <p class="callout">A 131% increase does not mean 131% of students experienced homelessness. Enrollment-based rates require another dataset.</p>
+        <p class="callout">A 131% increase describes a change in an agency count. It is not the proportion of enrolled students experiencing homelessness.</p>
+        <button type="button" id="show-published-rates" class="explore-entry">See AFC’s enrollment-based ranges ↗</button>
+        <p class="reading-note">AFC’s separate 2023–24 analysis uses cumulative enrollment and includes charter pupils. It publishes ranges, not exact district percentages. The interactive atlas offers this as a separate measure.</p>
       </article>
       <article class="slide" id="east-harlem" data-metric="homeless_2023_24" data-year="2023–24" data-district="4">
-        <p class="eyebrow">04 / Look closer · District 4</p><h2>Come closer.<br><em>East Harlem.</em></h2>
+        <p class="eyebrow">05 / Look closer · District 4</p><h2>Come closer.<br><em>East Harlem.</em></h2>
         <div class="stat">4,351<span>students reported in 2023–24</span></div>
         <figure class="comparison" data-chart-district="4"><figcaption>Three years in District 4</figcaption><div class="chart-bars"></div></figure>
         <p>District 4 reported <strong>1,961</strong> students in 2021–22, <strong>3,045</strong> in 2022–23, and <strong>4,351</strong> in 2023–24—an increase of about <strong>122%</strong> from the first year.</p>
         <p>These records make the district a useful place to begin asking questions about family housing stability. They do not show individual families’ housing journeys or whether they received support.</p>
       </article>
+      <article class="slide" id="consequences" data-metric="afc_rate_band_2023_24" data-year="2023–24 · AFC published ranges">
+        <p class="eyebrow">06 / What the consequences look like</p><h2>Getting to class<br><em>is part of the story.</em></h2>
+        <p>The map now shows AFC’s published percentage ranges. Unlike the workbook counts, this analysis uses cumulative enrollment and includes charter pupils; District 75 is excluded from district denominators. I have not calculated exact rates from these ranges.</p>
+        <p>A separate AFC brief reports <strong>2022–23 chronic absenteeism</strong> of <strong>67% for students in shelter</strong> and <strong>34% for permanently housed students</strong>. Chronic absence means missing at least one in ten school days.</p>
+        <figure class="comparison outcome-chart"><figcaption>NYCPS chronic absence · 2022–23</figcaption><div class="chart-row"><span>In shelter</span><span class="chart-track"><span style="width:67%"></span></span><strong>67%</strong></div><div class="chart-row"><span>Permanent housing</span><span class="chart-track"><span style="width:34%"></span></span><strong>34%</strong></div></figure>
+        <p>For 2023, the same brief reports four-year graduation rates of 63% for students in shelter and 85% for permanently housed students. Its educational indicators concern NYCPS students and exclude charter schools.</p>
+        <p class="callout">These are separately published citywide findings, not outcomes calculated from my district workbook. They show an association, not proof of what caused it.</p>
+        <p><a href="https://advocatesforchildren.org/policy-resource/sth-educational-indicators-2023/">AFC educational indicators, 2022–23 ↗</a><br><a href="https://advocatesforchildren.org/wp-content/uploads/2024/nyc_student_homelessness_2024.pdf">AFC rate categories and denominator notes ↗</a></p>
+      </article>
       <article class="slide college-slide" id="colleges" data-layer="colleges" data-metric="homelessness_pct" data-year="Spring 2024 surveys">
-        <p class="eyebrow">05 / Beyond the school gates</p><h2>College begins.<br><em>Housing uncertainty can remain.</em></h2>
+        <p class="eyebrow">07 / Beyond the school gates</p><h2>College begins.<br><em>Housing uncertainty can remain.</em></h2>
+        <p class="callout">Housing instability appears in schools and colleges. These are different student populations; the data do not follow the same people from school into college.</p>
         <p>CUNY is the first college layer; SUNY and private universities are not yet included. These are 26 institution locations in the official CUNY dataset. Campus points show where people study—not where students experiencing homelessness live.</p>
         <div class="coverage-note"><strong id="college-coverage">Loading campus coverage…</strong><span>Unverified campus values remain gray. They are not zeros.</span></div>
         <form id="college-filters" class="explore-form" aria-label="Explore CUNY colleges">
           <label>Find an institution<input id="campus-search" type="search" placeholder="Name, borough, or address" autocomplete="off"></label>
           <div class="filter-pair"><label>Borough<select id="campus-borough"><option value="">All boroughs</option><option>Bronx</option><option>Brooklyn</option><option>Manhattan</option><option>Queens</option><option>Staten Island</option></select></label>
           <label>Color by<select id="campus-metric"><option value="homelessness_pct">Homelessness · 2024</option><option value="housing_insecurity_pct">Housing insecurity · 2024</option><option value="rent_increase_difficulty_pct">Rent increase difficulty · 2024</option><option value="institution_type">Institution type</option></select></label></div>
+          <label>Evidence review<select id="campus-evidence-status"><option value="">All review statuses</option><option value="available">Campus figures available</option><option value="reviewed_pending">Source reviewed; figure pending</option><option value="not_yet_checked">Campus report not yet checked</option></select></label>
           <label class="checkbox-label"><input type="checkbox" id="campus-verified">Only campuses with a verified value for this measure</label>
           <button type="reset">Reset filters</button>
         </form>
@@ -95,29 +120,40 @@
         <p class="callout">Survey percentages and K–12 administrative counts answer different questions. They are never combined into a single total.</p>
       </article>
       <article class="slide college-slide" id="college-detail" data-layer="colleges" data-campus="6" data-metric="homelessness_pct" data-year="Spring 2024 surveys">
-        <p class="eyebrow">06 / Queensborough · Read the evidence</p><h2>One campus.<br><em>More than one kind of need.</em></h2>
+        <p class="eyebrow">08 / Queensborough · Read the evidence</p><h2>One campus.<br><em>More than one kind of need.</em></h2>
         <div class="college-stats"><div><strong>4%</strong><span>reported homelessness</span></div><div><strong>38%</strong><span>reported housing insecurity</span></div></div>
         <p>Queensborough’s 2024 report distinguishes a homelessness question from the broader housing insecurity measure. Both describe survey experience, not a headcount of students living on campus.</p>
-        <p>The survey had 474 respondents and a 12% response rate. Results were weighted; individual question sample sizes may differ. The reported homelessness percentage was 2% in 2022 and 4% in 2024. No significance test is provided here.</p>
+        <p>The spring 2024 survey asked about homelessness in the past 12 months. Queensborough’s 38% composite includes a yes to any of four items: a difficult rent increase, unpaid rent, unpaid utilities, or homelessness. It includes the homelessness item; the two percentages must not be added. There were 474 total respondents and a 12% response rate. CUNY’s central methods describe weighting and suppression of results with fewer than 25 respondents. Item sample sizes vary; I have not established confidence intervals or significance tests.</p>
         <p>LaGuardia’s separate report gives a 5% homelessness figure, with 747 respondents and a 14.9% response rate. These small differences should not be read as a campus ranking.</p>
         <p><a href="https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf">Read Queensborough’s survey report ↗</a><br><a href="https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf">Read LaGuardia’s survey report ↗</a></p>
       </article>
+      <article class="slide college-slide" id="voices" data-layer="colleges" data-campus="2" data-metric="homelessness_pct" data-year="Campus location · published account, 2026">
+        <p class="eyebrow">09 / A published account · September 2026</p><h2>Someone’s education.<br><em>Someone’s daily life.</em></h2>
+        <p>Bronx Community College published Christopher Thomas’s account of studying while living in a shelter. When he enrolled in 2020, he faced a long commute; the switch to remote classes and unreliable access to technology contributed to his decision to step away.</p>
+        <p>The college reports that he later returned, found support through family and the campus community, and was accepted to Columbia. His account makes the pressures concrete. It cannot tell us how common that experience is.</p>
+        <p><a href="https://www.bcc.cuny.edu/a-veterans-journey-from-a-homeless-shelter-to-columbia-university/">Read BCC’s published account, September 10, 2026 ↗</a></p>
+        <p class="callout">I did not interview Christopher. This is a later published account, not a participant linked to the 2021–24 school data or a measured outcome of a housing program.</p>
+        <p>The map locates the institution only. No shelter, residence, or personal travel route is mapped.</p>
+      </article>
       <article class="slide" id="questions" data-metric="homeless_2023_24" data-year="2023–24">
-        <p class="eyebrow">07 / From evidence to investigation</p><h2>A referral is<br><em>a beginning.</em></h2>
-        <p class="standfirst">What happens between needing help and receiving it?</p>
+        <p class="eyebrow">10 / From evidence to investigation</p><h2>What help exists?<br><em>What still gets in the way?</em></h2>
+        <p class="standfirst">The data establish a need. They do not yet establish the right product.</p>
         <p>I want to understand what families and college students have to do to find housing support, and where they get stuck. The numbers give me a starting point. My next step is to learn from students, families, and the people who work with them.</p>
-        <ul><li>Which housing and school-support tasks become hardest during a move?</li><li>Who takes responsibility when a task remains unresolved?</li><li>Where could a practical change help—and where is more housing or funding needed?</li></ul>
+        <p><a href="https://www.schools.nyc.gov/school-life/special-situations/students-in-temporary-housing/">NYCPS describes enrollment, school-continuity, and transportation support</a>. <a href="https://www.cuny.edu/about/administration/offices/student-affairs/programs-services/cuny-resource-centers/">CUNY resource centers describe housing referrals and other basic-needs assistance</a>. These links establish that support is described, not that a place, appointment, or funding is available to every student.</p>
+        <ul><li>Which steps leave students or families waiting without a clear next action?</li><li>Which barriers involve information or follow-up, and which involve housing supply, eligibility, or funding?</li><li>What do students and staff say would help most?</li></ul>
+        <p>That is where I want to take HOMES OS next: investigate one specific barrier with students and staff before deciding whether a tool would help. I am not claiming that a platform would solve homelessness.</p>
         <p class="callout">These are research questions. This workbook does not establish that service coordination failures caused student homelessness.</p>
       </article>
       <article class="slide sources" id="sources" data-metric="homeless_2023_24" data-year="2023–24">
-        <p class="eyebrow">08 / Data and sources</p><h2>Where the<br><em>numbers come from.</em></h2>
-        <p><strong>School district counts:</strong> I used the NYSED SIRS workbook, <cite>SED-SIRS-3-Year-Summary-2022-2024.xlsx</cite>, “3-yr Homeless Counts” worksheet. I still need to confirm the original publication link.</p>
-        <p><strong>Boundaries:</strong> <a href="https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u">NYC Department of City Planning, School Districts</a>, release 26b, downloaded October 24, 2026. These are 2026 boundaries; I have not yet checked whether they changed during the school years shown.</p>
-        <p>The map excludes separate charter records, District 75, and the central office. Students can be counted by multiple education agencies. Do not sum these records into a unique citywide total or add years into a count of unique people.</p>
-        <p>Suppressed values are treated as unavailable, never zero. No enrollment rates, home locations, or service outcomes are shown.</p>
+        <p class="eyebrow">11 / Data and sources</p><h2>Where the<br><em>numbers come from.</em></h2>
+        <p><strong>School district counts:</strong> I used the NYSED SIRS workbook, <cite>SED-SIRS-3-Year-Summary-2022-2024.xlsx</cite>, “3-yr Homeless Counts” worksheet. <a href="https://www.nysteachs.org/grantees">NYS-TEACHS publishes the original download</a>. I compared the published file with my supplied copy: identical SHA-256 hashes and no differences across 10,530 worksheet cells. <a href="docs/evidence/workbook-comparison.json">View the comparison record</a>.</p>
+        <p><strong>Boundaries:</strong> <a href="https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u">NYC Department of City Planning, School Districts</a>, release 26b, downloaded October 24, 2026. These are 2026 reference boundaries. Historical archive access failed; stability over 2021–24 is not established. <a href="docs/evidence/boundary-review.md">Read the boundary review</a>.</p>
+        <p>The reporting-LEA count layer excludes separate charter records, District 75, and the central office. Students can be counted by multiple education agencies. Do not sum these records into a unique citywide total or add years into a count of unique people.</p>
+        <p>Suppressed values are treated as unavailable, never zero. The workbook view shows agency counts and count changes. AFC’s separate view shows published enrollment-based ranges, not exact calculated district rates. Neither shows student home locations.</p>
         <p><strong>College locations:</strong> <a href="https://data.ny.gov/d/irqs-74ez">New York State, CUNY University Campus Locations</a>, downloaded October 24, 2026. I included all 26 institution locations in this file. SUNY and private universities are not included yet.</p>
-        <p><strong>College surveys:</strong> <a href="https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf">Queensborough 2024</a> and <a href="https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf">LaGuardia 2024</a>. So far, I have checked these two campus reports. Homelessness, housing insecurity, and difficulty paying rent are different measures that can overlap. I keep them separate and do not turn the survey percentages into student counts.</p>
+        <p><strong>College surveys:</strong> <a href="https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf">Queensborough 2024</a> and <a href="https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf">LaGuardia 2024</a>. Two campus reports have verified figures; five other campus source pages have been reviewed without establishing comparable figures. The remaining campus reports have not yet been checked. Homelessness, housing insecurity, and difficulty paying rent are different measures that can overlap. I keep them separate and do not turn the survey percentages into student counts.</p>
         <p><strong>Support links:</strong> I included campus support pages so readers can learn more. I have not confirmed current availability or eligibility. The map does not identify students or show where they live.</p>
+        <p><strong>Review records:</strong> <a href="docs/evidence/audit.md">Evidence audit and remaining questions</a> · <a href="docs/interview-guide.md">Interview questions and consent approach</a>. No interviews or external outreach have been conducted for this project.</p>
         <a class="download-link" href="data/cuny-colleges.csv" download>Download campus evidence (CSV) ↓</a>
         <p>The later “nearly one in seven” headline concerns <a href="https://advocatesforchildren.org/policy-resource/student-homelessness-data-2025/">2024–25 data</a>, outside this workbook.</p>
         <a class="download-link" href="data/nyc-student-homelessness-districts.csv" download>Download district counts (CSV) ↓</a>
@@ -136,7 +172,7 @@
       </section>
       <section class="explorer-sidebar" aria-label="Filters and results">
         <div class="atlas-tabs" role="group" aria-label="Choose evidence layer"><button type="button" data-atlas-layer="districts" aria-pressed="true">K–12 districts</button><button type="button" data-atlas-layer="colleges" aria-pressed="false">CUNY colleges</button></div>
-        <p id="atlas-scope" class="atlas-small"></p>
+        <p id="atlas-scope" class="atlas-small"></p><p id="atlas-method-note" class="atlas-small"></p>
         <div class="atlas-filter-grid">
           <label>Search<input id="atlas-search" type="search" placeholder="District, college, or borough" autocomplete="off"></label>
           <label>Borough<select id="atlas-borough"><option value="">All boroughs</option><option>Bronx</option><option>Brooklyn</option><option>Manhattan</option><option>Queens</option><option>Staten Island</option></select></label>
@@ -144,7 +180,7 @@
           <label>Order results<select id="atlas-sort"><option value="name">District number / name</option><option value="value">Highest reported value</option></select></label>
         </div>
         <div id="atlas-timeline" class="atlas-timeline"><label for="atlas-year">School year <strong id="atlas-time-label">2023–24</strong></label><input id="atlas-year" type="range" min="0" max="2" step="1" value="2" aria-label="School year: 0 is 2021–22, 1 is 2022–23, 2 is 2023–24"><div class="timeline-ticks" aria-hidden="true"><span>2021–22</span><span>2022–23</span><span>2023–24</span></div><button type="button" id="atlas-play" aria-pressed="false">Play years</button></div>
-        <div id="atlas-college-options" hidden><label class="atlas-type-label">Institution type<select id="atlas-type"><option value="">All institution types</option><option>Community Colleges</option><option>Comprehensive Colleges</option><option>Graduate Colleges</option><option>Senior Colleges</option><option>Honors Colleges</option></select></label><label class="checkbox-label"><input id="atlas-verified" type="checkbox">Only verified values for this measure</label><label class="checkbox-label"><input id="atlas-support" type="checkbox">Only campuses with a verified support link</label></div>
+        <div id="atlas-college-options" hidden><label class="atlas-type-label">Evidence review<select id="atlas-evidence-status"><option value="">All review statuses</option><option value="available">Campus figures available</option><option value="reviewed_pending">Source reviewed; figure pending</option><option value="not_yet_checked">Campus report not yet checked</option></select></label><label class="atlas-type-label">Institution type<select id="atlas-type"><option value="">All institution types</option><option>Community Colleges</option><option>Comprehensive Colleges</option><option>Graduate Colleges</option><option>Senior Colleges</option><option>Honors Colleges</option></select></label><label class="checkbox-label"><input id="atlas-verified" type="checkbox">Only verified values for this measure</label><label class="checkbox-label"><input id="atlas-support" type="checkbox">Only campuses with a verified support link</label></div>
         <label class="checkbox-label"><input type="checkbox" id="atlas-labels">Show map labels</label>
         <div class="atlas-toolbar"><button type="button" id="atlas-reset">Reset exploration</button><button type="button" id="atlas-export">Download results ↓</button><button type="button" id="atlas-share">Share this view ↗</button></div>
         <label class="atlas-share-label"><span class="visually-hidden">Exploration link</span><input id="atlas-share-url" type="text" readonly hidden></label>

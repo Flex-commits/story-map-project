@@ -1453,6 +1453,14 @@ button:disabled {
   margin-bottom: 10px;
 }
 
+.map-method p {
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
 #atlas-selection p, #atlas-selection a {
   font-size: 11px;
   line-height: 1.6;
@@ -1638,5 +1646,52 @@ button:disabled {
 
   #atlas-map-heading {
     font-size: 8px;
+  }
+}
+
+.definition-summary {
+  font-size: 12px;
+  line-height: 1.65;
+  border-left: 1px solid #a4472d;
+  padding-left: 14px;
+}
+
+.map-method {
+  margin-top: 8px;
+  max-width: 280px;
+}
+
+.map-method summary {
+  padding: 3px 0;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.outcome-chart .chart-row {
+  grid-template-columns: 90px 1fr 35px;
+}
+
+.outcome-chart .chart-row:last-child .chart-track > span {
+  background: #7a9585;
+}
+
+#atlas-method-note {
+  padding-left: 10px;
+  border-left: 2px solid #8972a6;
+}
+
+@media (width <= 760px) {
+  .map-method {
+    margin-top: 3px;
+    max-width: 265px;
+  }
+
+  .map-method summary {
+    font-size: 9px;
+  }
+
+  .map-method p {
+    max-height: 65px;
+    font-size: 9px;
   }
 }

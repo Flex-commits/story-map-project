@@ -1,0 +1,14 @@
+{
+  "reviewed_on": "2026-10-24",
+  "central_source": "https://www.cuny.edu/about/administration/offices/oareda/insights-reporting-analytics/",
+  "dashboard": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/Intro",
+  "central_method": "The public dashboard describes a 50% random sample of degree-seeking undergraduates in spring 2024, fielded April 10–June 5; 7,035 complete responses, 8.6% response rate. College estimates use post-stratification raking. Item respondent numbers vary; frequencies with fewer than 25 respondents are suppressed. No unverified campus values have been extracted or imputed.",
+  "campuses": {
+    "Bronx Community College": {"status":"reviewed_pending","url":"https://www.bcc.cuny.edu/academics/oie/surveys/survey-calendar/","note":"The public calendar confirms a spring 2024 SES administration. A comparable campus homelessness percentage was not verified from that page."},
+    "New York City College of Technology": {"status":"reviewed_pending","url":"https://www.citytech.cuny.edu/aire/ses.aspx","note":"Public SES resources reviewed. A comparable 2024 campus homelessness percentage has not been established; the central dashboard remains a follow-up source."},
+    "Queens College": {"status":"reviewed_pending","url":"https://www.qc.cuny.edu/oie/surveys/","note":"Public survey page reviewed; it links 2022 results and other surveys. A comparable 2024 homelessness percentage was not verified."},
+    "Brooklyn College": {"status":"reviewed_pending","url":"https://www.brooklyn.edu/provost/institutional-effectiveness/survey-services/","note":"Public survey resources include a different 2020 survey. No comparable 2024 campus homelessness value verified; older results are not substituted."},
+    "The Graduate School and University Center": {"status":"reviewed_pending","url":"https://www.gc.cuny.edu/institutional-research-and-effectiveness/newsletters-and-reports","note":"Public graduate survey and housing-report listings reviewed. Internal reports require CUNYfirst login, but public reports also exist. No comparable 2024 undergraduate homelessness result is assigned to this graduate institution."}
+  },
+  "availability_rule": "Not finding a value is not evidence it is unpublished. No campus is classified as having no publicly available homelessness data. Restricted access applies only to specifically identified internal reports. All other unreviewed campuses remain not_yet_checked."
+}
