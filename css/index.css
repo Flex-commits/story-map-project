@@ -528,19 +528,6 @@ th:first-child {
   pointer-events: none;
 }
 
-.slide::after {
-  content: '✦';
-  position: absolute;
-  bottom: 35px;
-  left: 50%;
-  color: #a8916c;
-  font-size: 18px;
-}
-
-.introduction::after {
-  content: none;
-}
-
 .cover-number {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
