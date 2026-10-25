@@ -1,5 +1,5 @@
 {
   "reviewed_on": "2026-10-24",
   "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults",
-  "observation": "Public view opens by default on 2026, Senior Colleges, Academic Experience. The default CSV is not a 2024 housing dataset. A trial filtered export returned no usable rows; no additional campus percentages were used. This does not establish that data are unavailable."
+  "observation": "Public 2024 housing exports retrieved using exact year, escaped section commas and sector parameter. Visible dashboard controls checked. 19 separate campus profiles extracted; seven location records have no separate undergraduate column. QCC central scale 44% differs from campus four-item composite38%; LaGuardia central rent difficulty39% differs from campus40%. See statistical-analysis.md and retained extraction record."
 }

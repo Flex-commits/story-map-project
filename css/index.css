@@ -1,4 +1,184 @@
 
+a {
+  color: #833a23;
+  text-underline-offset: 4px;
+
+}
+
+p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.85;
+
+}
+
+li {
+  margin-bottom: 14px;
+
+}
+
+
+.opening-title-line {
+  display: block;
+}
+
+.housing-arrangements-period {
+  display: block;
+  margin-top: 0.5rem;
+  font: 0.65rem / 1.6 'DM Sans', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.housing-key-swatch {
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.housing-arrangements p {
+  margin-bottom: 0;
+  font-size: 0.65rem;
+}
+
+.opening-quote {
+  margin: 12px 0 26px;
+  padding-left: 18px;
+  border-left: 1px solid #a4472d;
+}
+
+.opening-quote blockquote {
+  margin: 0 0 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.opening-quote figcaption {
+  font-size: 11px;
+}
+
+.opening-quote a {
+  margin-left: 8px;
+}
+
+/* Source register: quiet folio numbers, readable evidence, visible methods. */
+.evidence-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin: 2rem 0;
+  border-block: 1px solid var(--line);
+}
+
+.evidence-summary strong {
+  display: block;
+  font: 500 2rem / 1.1 "Cormorant Garamond", serif;
+}
+
+.evidence-summary span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.source-kicker {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.sources h3 {
+  margin: 0.4rem 0 0.7rem;
+  font: 500 1.6rem / 1.2 "Cormorant Garamond", serif;
+}
+
+.analysis-report {
+  padding: 1.5rem;
+  background: rgb(116 90 65 / 5%);
+  border-left: 2px solid #a38b66;
+}
+
+.sources .analysis-caution,
+.sources .source-limit {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.methodology-note {
+  margin: 1.5rem 0 3rem;
+}
+
+.method-steps {
+  padding-left: 1.3rem;
+}
+
+.method-steps li {
+  padding-left: 0.35rem;
+  margin: 1.2rem 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.source-entry {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 6rem;
+}
+
+.source-number {
+  padding-top: 0.3rem;
+  color: #887251;
+  font: italic 1.3rem "Cormorant Garamond", serif;
+}
+
+.sources .source-meta {
+  font-size: 0.67rem;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.source-entry p,
+.source-entry a,
+.source-downloads p {
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.source-entry a {
+  overflow-wrap: anywhere;
+}
+
+.additional-sources {
+  margin: 1.5rem 0;
+}
+
+.source-downloads {
+  padding-block: 1.5rem;
+}
+
+@media (width <= 600px) {
+  .evidence-summary {
+    gap: 0.6rem;
+  }
+
+  .evidence-summary strong {
+    font-size: 1.7rem;
+  }
+
+  .analysis-report {
+    padding: 1rem;
+  }
+}
+
+
 
 h1 em, h2 em {
   font-weight: 400;
@@ -12,6 +192,7 @@ h1 em, h2 em {
   --paper: #f6f0e5;
   --muted: #676259;
   --accent: #a4472d;
+  --line: rgb(102 83 55 / 22%);
 }
 
 * {
@@ -35,11 +216,6 @@ body {
 
 }
 
-a {
-  color: #833a23;
-  text-underline-offset: 4px;
-
-}
 
 a:hover {
   color: #482414;
@@ -268,12 +444,6 @@ h2 {
 
 }
 
-p {
-  margin: 0 0 20px;
-  font-size: 14px;
-  line-height: 1.85;
-
-}
 
 .standfirst {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -354,10 +524,6 @@ ul {
 
 }
 
-li {
-  margin-bottom: 14px;
-
-}
 
 .sources p {
   font-size: 13px;
@@ -1693,5 +1859,78 @@ button:disabled {
   .map-method p {
     max-height: 65px;
     font-size: 9px;
+  }
+}
+
+h1.opening-title {
+  font-size: clamp(40px, 4.5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+
+.opening-question {
+  padding-block: 1rem;
+  font: 500 1.8rem / 1.25 'Cormorant Garamond', serif;
+  color: #833a23;
+}
+
+.opening-source {
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.housing-arrangements {
+  margin: 1rem 0 2rem;
+  padding: 1.25rem 0;
+  border-block: 1px solid var(--line);
+}
+
+.housing-arrangements figcaption {
+  font: italic 1.35rem / 1.3 'Cormorant Garamond', serif;
+}
+
+
+.housing-share-bar {
+  display: flex;
+  height: 1.4rem;
+  gap: 2px;
+  margin-block: 1rem;
+}
+
+.share-doubled {
+  background: #acd4d2;
+  flex: 53;
+}
+
+.share-shelter {
+  background: #287d82;
+  flex: 42;
+}
+
+.share-other {
+  background: #78695d;
+  flex: 5;
+}
+
+.housing-share-key {
+  padding: 0;
+  list-style: none;
+}
+
+.housing-share-key > li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.73rem;
+}
+
+
+
+@media (width <= 760px) {
+  h1.opening-title {
+    font-size: clamp(40px, 9.6vw, 66px);
   }
 }

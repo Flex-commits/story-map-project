@@ -1,0 +1,370 @@
+College,Item,Section Heading,Sub Section,Value,Avg. Weighted Freq,Numeric Display Calculation,Weighted Count
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0, 0%,622.696633592
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,0, 0%,622.696633592
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0, 0%,622.696633592
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,0, 0%,275.123100630
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0, 0%,275.123100630
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0, 0%,275.123100630
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,0, 0%,275.123100630
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,0, 0%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,0, 0%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,0, 0%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0, 0%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,0, 0%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0, 0%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,0, 0%,44.387970598
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0, 0%,104.554459508
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,0, 0%,104.554459508
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,0, 0%,296.481183572
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0, 0%,296.481183572
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0, 0%,296.481183572
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,0, 0%,725.683966037
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0, 0%,725.683966037
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,0, 0%,467.144060474
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,0, 0%,467.144060474
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,0, 0%,467.144060474
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0, 0%,467.144060474
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0.401087269, 0%,"2,546.662275675"
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,0.506338997, 0%,275.123100630
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0.522292814, 0%,"2,546.662275675"
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,0.549541597, 0%,467.144060474
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,0.621831880, 0%,725.683966037
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,0.701666894, 0%,296.481183572
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,0.701666894, 0%,296.481183572
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,0.750354233, 0%,622.696633592
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,0.842625282, 0%,725.683966037
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,0.984888662, 0%,296.481183572
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,0.984888662, 0%,296.481183572
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,1.135797044, 0%,275.123100630
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,1.135797044, 0%,275.123100630
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,1.234929402,3%,44.387970598
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,1.234929402,3%,44.387970598
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,1.835692162, 0%,725.683966037
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,2.033224157, 0%,622.696633592
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,2.064966444, 0%,622.696633592
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,2.136549493, 0%,467.144060474
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,2.188839212,5%,44.387970598
+Guttman,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,2.371084642,5%,43.632111946
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,2.527794063, 0%,"2,546.662275675"
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,9 times,2.604250128, 0%,"6,867.315424435"
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,2.636531318, 0%,"2,546.662275675"
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,2.788861997,1%,467.144060474
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,2.962462903,3%,104.554459508
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,8 times,3.013427529, 0%,"6,867.315424435"
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,3.075047052,1%,275.123100630
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,3.158665434, 0%,725.683966037
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,3.191397145, 0%,725.683966037
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,3.333595220,1%,467.144060474
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,3.458474087,1%,622.696633592
+Guttman,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,3.824102618,9%,43.632111946
+Guttman,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,4.022969018,9%,43.632111946
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,4.035270054,100%,44.387970598
+Guttman,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,4.766013899,11%,43.632111946
+Hostos,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,4.799916787,5%,100.302983825
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,7 times,4.823372487, 0%,"6,867.315424435"
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,5.176224015, 0%,"2,546.662275675"
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,5.519115768,2%,296.481183572
+Guttman,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,6.307747463,14%,43.632111946
+Guttman,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,6.674298163,16%,41.699207979
+Guttman,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,6.843901145,16%,43.632111946
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,6 times,7.363368416, 0%,"6,867.315424435"
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,7.377517756,2%,296.481183572
+Guttman,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,7.675052855,18%,43.632111946
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,8.039614194, 0%,"2,546.662275675"
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,8.299228036,3%,275.123100630
+Guttman,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,8.426489216,19%,43.632111946
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,10 or more times,8.460170633, 0%,"6,867.315424435"
+Hostos,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,8.693807170,9%,99.455140510
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,8.995942397, 0%,"2,546.662275675"
+Queensborough,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,9.359652624,2%,455.295701464
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,9.421378224,1%,725.683966037
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,9.504950864,100%,104.554459508
+Kingsborough,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,10.159270992,4%,285.321969027
+Kingsborough,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,10.202023540,4%,287.763226681
+Hostos,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,10.292601226,10%,99.519548723
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,11.751991204,3%,467.144060474
+Hostos,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,11.836678370,12%,98.670024514
+Kingsborough,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,12.116653191,4%,286.190865125
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,12.348345593,2%,622.696633592
+Bronx,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,12.961904511,5%,266.272213665
+Hostos,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,13.425064219,13%,99.455140510
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,5 times,13.468229466, 0%,"6,867.315424435"
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,14.169429340,14%,104.554459508
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,16.132450624,3%,622.696633592
+Hostos,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,16.477927229,16%,100.302983825
+Bronx,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,17.646849576,7%,267.381449322
+Queensborough,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,19.744827150,4%,451.397471058
+Queensborough,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,20.712370393,5%,453.823091213
+Guttman,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,20.849603990,100%,41.699207979
+Guttman,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,21.816055973,100%,43.632111946
+Guttman,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,22.193985299,100%,44.387970598
+Guttman,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,22.699547701,51%,44.387970598
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,4 times,23.706958268, 0%,"6,867.315424435"
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,25.011190966,100%,275.123100630
+Bronx,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,26.339225698,10%,266.838628593
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,26.952834870,100%,296.481183572
+Hostos,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,27.344027639,28%,98.141449783
+LaGuardia,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,31.834059629,5%,699.028730864
+Kingsborough,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,33.800125400,12%,284.553289296
+BMCC,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,34.001096013,6%,607.388796548
+Kingsborough,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,34.309576703,12%,284.398684342
+Guttman,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,35.024909816,84%,41.699207979
+Guttman,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,35.205622730,81%,43.632111946
+LaGuardia,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,35.754224365,5%,690.774760864
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,35.895701190,13%,275.123100630
+Guttman,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,35.957059091,82%,43.632111946
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,36.557834783,5%,725.683966037
+Guttman,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,36.788210801,84%,43.632111946
+Guttman,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,37.324364483,86%,43.632111946
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,37.585466806,13%,296.481183572
+Hostos,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,37.958948469,38%,100.302983825
+Hostos,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,38.580996798,38%,100.302983825
+Guttman,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,38.866098047,89%,43.632111946
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,39.283959245,2%,"2,546.662275675"
+LaGuardia,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,39.513635523,6%,686.287778296
+Guttman,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,39.609142928,91%,43.632111946
+Guttman,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,39.729272583,90%,44.387970598
+Guttman,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,39.808009328,91%,43.632111946
+Queensborough,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,39.988934137,9%,451.621747931
+Bronx,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,40.215724306,15%,262.873143988
+Kingsborough,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,40.310903650,14%,284.088160161
+Guttman,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,41.261027303,95%,43.632111946
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,42.467641861,100%,467.144060474
+Bronx,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,43.200518308,16%,267.226399394
+Bronx,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,44.203282565,17%,262.917945308
+BMCC,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,44.834907127,7%,614.695683825
+Queensborough,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,45.848663087,10%,446.511764801
+Hostos,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,49.070724891,100%,98.141449783
+Hostos,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,49.335012257,100%,98.670024514
+Hostos,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,49.727570255,100%,99.455140510
+Hostos,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,49.727570255,100%,99.455140510
+Hostos,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,49.759774362,100%,99.519548723
+Queensborough,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,49.846970650,11%,452.223417700
+Hostos,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,50.151491913,100%,100.302983825
+Hostos,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,50.151491913,100%,100.302983825
+Hostos,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,50.151491913,100%,100.302983825
+Hostos,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,50.151491913,100%,100.302983825
+Hostos,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,52.277229754,100%,104.554459508
+BMCC,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,52.863676140,9%,611.783474616
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,53.359911021,11%,467.144060474
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,56.608784872,100%,622.696633592
+Hostos,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,58.787774108,56%,104.554459508
+Kingsborough,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,58.912033473,21%,286.824267995
+Bronx,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,59.269535378,22%,268.762421600
+Kingsborough,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,60.939408965,21%,290.133937717
+Hostos,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,61.721987027,62%,100.302983825
+Hostos,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,62.344035356,62%,100.302983825
+Queensborough,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,65.888490857,14%,456.705380778
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,65.971269640,100%,725.683966037
+Bronx,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,66.033078827,24%,269.608473487
+Hostos,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,70.797422144,72%,98.141449783
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,73.371526274,3%,"2,546.662275675"
+Queensborough,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,77.165484586,17%,456.662979315
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,80.412568262,13%,622.696633592
+Hostos,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,83.825056597,84%,100.302983825
+LaGuardia,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,84.754346024,12%,694.942875173
+Hostos,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,86.030076291,87%,99.455140510
+BMCC,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,86.744882352,14%,604.991463766
+Hostos,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,86.833346144,88%,98.670024514
+Hostos,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,87.422567266,84%,104.554459508
+Hostos,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,89.226947498,90%,99.519548723
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,3 times,89.499169929,1%,"6,867.315424435"
+BMCC,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,90.245556390,15%,609.478568878
+Hostos,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,90.761333340,91%,99.455140510
+Hostos,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,95.503067038,95%,100.302983825
+Kingsborough,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,99.364244190,34%,292.105322760
+BMCC,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,100.360613045,17%,606.739157438
+Bronx,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,100.628649217,37%,273.898929178
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,101.626168568,14%,725.683966037
+LaGuardia,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,110.623861544,16%,689.162882399
+LaGuardia,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,114.262104127,17%,692.177916824
+BMCC,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,119.393704380,20%,611.620378236
+Community Colleges,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,125.970826057,5%,"2,456.259028986"
+Bronx,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,131.436571994,100%,262.873143988
+Bronx,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,131.458972654,100%,262.917945308
+Bronx,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,133.136106833,100%,266.272213665
+Bronx,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,133.419314296,100%,266.838628593
+Bronx,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,133.613199697,100%,267.226399394
+Bronx,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,133.690724661,100%,267.381449322
+Bronx,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,134.381210800,100%,268.762421600
+Bronx,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,134.804236744,100%,269.608473487
+Bronx,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,136.949464589,100%,273.898929178
+LaGuardia,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,137.884951452,20%,699.733551181
+Bronx,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,138.805644279,100%,277.611288558
+Kingsborough,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,142.044080081,100%,284.088160161
+Kingsborough,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,142.199342171,100%,284.398684342
+Kingsborough,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,142.276644648,100%,284.553289296
+Kingsborough,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,142.660984513,100%,285.321969027
+Kingsborough,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,143.095432562,100%,286.190865125
+Kingsborough,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,143.412133998,100%,286.824267995
+Kingsborough,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,143.881613341,100%,287.763226681
+Queensborough,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,143.892477084,31%,459.225026388
+Kingsborough,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,145.066968858,100%,290.133937717
+Kingsborough,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,146.052661380,100%,292.105322760
+Kingsborough,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,148.669718968,100%,297.339437936
+LaGuardia,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,148.685759631,21%,701.660269083
+Community Colleges,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,148.963869969,6%,"2,479.483543378"
+Kingsborough,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,152.901818377,51%,297.339437936
+BMCC,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,157.091758079,26%,613.405692216
+Bronx,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,158.999156460,57%,277.611288558
+Community Colleges,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,165.180868745,7%,"2,464.206185147"
+Bronx,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,173.270279961,63%,273.898929178
+Kingsborough,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,192.741078570,66%,292.105322760
+Bronx,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,203.575394661,76%,269.608473487
+Queensborough,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,206.454190885,44%,467.144060474
+Bronx,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,209.492886223,78%,268.762421600
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,Twice,216.654159441,3%,"6,867.315424435"
+Bronx,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,218.714662743,83%,262.917945308
+Bronx,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,222.657419682,85%,262.873143988
+Queensborough,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,223.255882400,100%,446.511764801
+Bronx,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,224.025881085,84%,267.226399394
+Bronx,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,225.075191266,82%,275.123100630
+Queensborough,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,225.698735529,100%,451.397471058
+Queensborough,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,225.810873965,100%,451.621747931
+Queensborough,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,226.111708850,100%,452.223417700
+Queensborough,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,226.911545606,100%,453.823091213
+Queensborough,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,227.647850732,100%,455.295701464
+Kingsborough,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,227.912234522,79%,286.824267995
+Queensborough,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,228.331489657,100%,456.662979315
+Queensborough,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,228.352690389,100%,456.705380778
+Kingsborough,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,229.194528752,79%,290.133937717
+Queensborough,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,229.612513194,100%,459.225026388
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,231.514752334,100%,"2,546.662275675"
+Queensborough,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,233.572030237,100%,467.144060474
+BMCC,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,233.823442795,38%,615.646653164
+Bronx,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,240.499402894,90%,266.838628593
+Kingsborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,242.625972128,82%,296.481183572
+Kingsborough,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,243.777256511,86%,284.088160161
+Bronx,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,249.734599746,93%,267.381449322
+Kingsborough,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,250.089107640,88%,284.398684342
+Kingsborough,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,250.753163896,88%,284.553289296
+Bronx,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,253.310309155,95%,266.272213665
+Kingsborough,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,274.074211934,96%,286.190865125
+Kingsborough,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,275.162698035,96%,285.321969027
+Kingsborough,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,277.561203142,96%,287.763226681
+LaGuardia,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,280.214480552,39%,714.550048161
+BMCC,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,302.495731883,100%,604.991463766
+BMCC,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,303.369578719,100%,606.739157438
+BMCC,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,303.694398274,100%,607.388796548
+BMCC,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,304.739284439,100%,609.478568878
+BMCC,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,305.810189118,100%,611.620378236
+BMCC,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,305.891737308,100%,611.783474616
+BMCC,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,306.702846108,100%,613.405692216
+BMCC,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,307.347841913,100%,614.695683825
+BMCC,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,307.823326582,100%,615.646653164
+BMCC,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,314.222340247,100%,628.444680494
+Queensborough,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,315.332549305,69%,459.225026388
+Total University,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,Yes,317.087491474,5%,"6,676.918616711"
+Total University,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,Yes,323.294450888,5%,"6,708.865613215"
+Community Colleges,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,327.135714752,13%,"2,446.954339068"
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,332.572473467,13%,"2,546.662275675"
+Community Colleges,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,335.964800680,14%,"2,455.627196249"
+BMCC,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,337.794513526,54%,628.444680494
+Total University,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,Yes,341.703719199,5%,"6,656.763657429"
+LaGuardia,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,343.143889148,100%,686.287778296
+LaGuardia,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,344.581441199,100%,689.162882399
+LaGuardia,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,345.387380432,100%,690.774760864
+LaGuardia,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,346.088958412,100%,692.177916824
+LaGuardia,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,347.471437586,100%,694.942875173
+LaGuardia,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,349.514365432,100%,699.028730864
+LaGuardia,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,349.866775591,100%,699.733551181
+LaGuardia,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,350.830134542,100%,701.660269083
+LaGuardia,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,357.275024081,100%,714.550048161
+LaGuardia,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,363.904206682,100%,727.808413365
+Community Colleges,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,376.606019592,15%,"2,451.185002480"
+Queensborough,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,379.497494729,83%,456.662979315
+BMCC,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,381.823210369,62%,615.646653164
+Queensborough,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,390.816889922,86%,456.705380778
+LaGuardia,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,392.508165171,54%,727.808413365
+Queensborough,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,393.223609942,84%,467.144060474
+Queensborough,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,400.663101714,90%,446.511764801
+Queensborough,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,402.376447050,89%,452.223417700
+Queensborough,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,411.632813794,91%,451.621747931
+Queensborough,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,431.652643908,96%,451.397471058
+Queensborough,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,433.110720819,95%,453.823091213
+LaGuardia,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,434.335567609,61%,714.550048161
+Queensborough,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,445.936048840,98%,455.295701464
+BMCC,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,456.313934136,74%,613.405692216
+Community Colleges,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,484.712488555,20%,"2,473.089757202"
+BMCC,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,492.226673856,80%,611.620378236
+BMCC,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,505.496250190,81%,622.696633592
+BMCC,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,506.378544393,83%,606.739157438
+BMCC,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,518.246581414,86%,604.991463766
+BMCC,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,519.233012487,85%,609.478568878
+LaGuardia,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,552.974509452,79%,701.660269083
+BMCC,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,558.919798476,91%,611.783474616
+LaGuardia,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,561.848599730,80%,699.733551181
+LaGuardia,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,568.428372559,78%,725.683966037
+BMCC,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,569.860776698,93%,614.695683825
+BMCC,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,573.387700535,94%,607.388796548
+LaGuardia,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,577.915812697,83%,692.177916824
+LaGuardia,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,578.539020854,84%,689.162882399
+Community Colleges,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,583.604622302,23%,"2,486.232178630"
+LaGuardia,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,610.188529149,88%,694.942875173
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,All,624.301402221,100%,"6,867.315424435"
+LaGuardia,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,646.774142773,94%,686.287778296
+LaGuardia,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,655.020536499,95%,690.774760864
+LaGuardia,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,667.194671235,95%,699.028730864
+Total University,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,Yes,790.140383892,12%,"6,609.910700735"
+Total University,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,Yes,816.754706465,12%,"6,641.957789084"
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,Once,843.993843220,12%,"6,867.315424435"
+Total University,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,Yes,913.716311479,14%,"6,637.670952257"
+Community Colleges,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,919.966695630,37%,"2,506.381397993"
+Total University,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,Yes,"1,106.807350437",17%,"6,667.560569122"
+Community Colleges,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,"1,223.477169534",100%,"2,446.954339068"
+Community Colleges,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,"1,225.592501240",100%,"2,451.185002480"
+Community Colleges,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,"1,227.813598124",100%,"2,455.627196249"
+Community Colleges,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,"1,228.129514493",100%,"2,456.259028986"
+Community Colleges,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,"1,232.103092574",100%,"2,464.206185147"
+Community Colleges,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,"1,236.544878601",100%,"2,473.089757202"
+Community Colleges,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,"1,239.741771689",100%,"2,479.483543378"
+Community Colleges,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,"1,243.116089315",100%,"2,486.232178630"
+Community Colleges,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,"1,253.190698997",100%,"2,506.381397993"
+Community Colleges,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,"1,279.440135194",100%,"2,558.880270387"
+Total University,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,Yes,"1,335.913148496",20%,"6,719.870570244"
+Community Colleges,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,"1,346.654355510",53%,"2,558.880270387"
+Community Colleges,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,"1,586.414702363",63%,"2,506.381397993"
+Community Colleges,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,"1,902.627556329",77%,"2,486.232178630"
+Community Colleges,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,"1,988.377268647",80%,"2,473.089757202"
+Community Colleges,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,"2,073.134830619",81%,"2,546.662275675"
+Community Colleges,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,"2,074.578982887",85%,"2,451.185002480"
+Community Colleges,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,"2,119.662395569",86%,"2,455.627196249"
+Community Colleges,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,"2,119.818624315",87%,"2,446.954339068"
+Community Colleges,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,"2,299.025316403",93%,"2,464.206185147"
+Total University,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,Yes,"2,305.711676765",34%,"6,762.479929725"
+Community Colleges,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,"2,330.288202929",95%,"2,456.259028986"
+Community Colleges,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,"2,330.519673409",94%,"2,479.483543378"
+Total University,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,All,"3,304.955350367",100%,"6,609.910700735"
+Total University,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,All,"3,318.835476128",100%,"6,637.670952257"
+Total University,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,All,"3,320.978894542",100%,"6,641.957789084"
+Total University,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,All,"3,328.381828715",100%,"6,656.763657429"
+Total University,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,All,"3,333.780284561",100%,"6,667.560569122"
+Total University,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,All,"3,338.459308355",100%,"6,676.918616711"
+Total University,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,Housing Insecure,"3,347.866933957",49%,"6,900.668231897"
+Total University,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,All,"3,354.432806607",100%,"6,708.865613215"
+Total University,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,All,"3,359.935285122",100%,"6,719.870570244"
+Total University,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,All,"3,381.239964863",100%,"6,762.479929725"
+Total University,% experiencing housing insecurity,Housing Insecurity Scale,Housing Insecurity,All,"3,450.334115949",100%,"6,900.668231897"
+Total University,...was there a rent or mortgage increase that made it difficult to pay?,In the last 12 months...,Housing Insecurity,No,"4,456.768252960",66%,"6,762.479929725"
+Total University,...have you been unable to pay or underpaid your rent or mortgage?,In the last 12 months...,Housing Insecurity,No,"5,383.957421748",80%,"6,719.870570244"
+Total University,"...have you not paid the full amount of a gas, oil, or electricity bill?",In the last 12 months...,Housing Insecurity,No,"5,560.753218685",83%,"6,667.560569122"
+Total University,how many times have you moved?,In the last 12 months...,Housing Insecurity,None,"5,653.728474917",82%,"6,867.315424435"
+Total University,...have you lived with others beyond the expected capacity of the house or apartment?,In the last 12 months...,Housing Insecurity,No,"5,723.954640778",86%,"6,637.670952257"
+Total University,...did you have an account default or go into collections?,In the last 12 months...,Housing Insecurity,No,"5,819.770316843",88%,"6,609.910700735"
+Total University,"...have you moved in with other people, even for a little while, because of financial problems?",In the last 12 months...,Housing Insecurity,No,"5,825.203082619",88%,"6,641.957789084"
+Total University,...did you leave your household because you felt unsafe?,In the last 12 months...,Housing Insecurity,No,"6,315.059938230",95%,"6,656.763657429"
+Total University,...have you ever been homeless?,In the last 12 months...,Housing Insecurity,No,"6,359.831125236",95%,"6,676.918616711"
+Total University,...have you received a summons to appear in housing court?,In the last 12 months...,Housing Insecurity,No,"6,385.571162327",95%,"6,708.865613215"

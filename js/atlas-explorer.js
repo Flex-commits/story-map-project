@@ -1,5 +1,5 @@
 import { RATE_METRIC, RATE_BINS, RATE_NOTE, GEOGRAPHY_NOTE } from './evidence.js';
-import { campusCard, collegeColor, metrics, typeColors } from './colleges.js';
+import { campusCard, collegeColor, metrics, typeColors, missingCollegeValue } from './colleges.js';
 
 const YEARS = ['2021_22', '2022_23', '2023_24'];
 const BOROUGHS = { 'NEW YORK': 'Manhattan', 'BRONX': 'Bronx', 'KINGS': 'Brooklyn', 'QUEENS': 'Queens', 'RICHMOND': 'Staten Island' };
@@ -17,7 +17,7 @@ const CHANGE_BINS = [
   { max: 100, color: '#c77b50', label: '50–<100%' },
   { max: Infinity, color: '#9b402e', label: '100%+' },
 ];
-const fmt = (value) => value === null || value === undefined ? 'Not verified' : Number(value).toLocaleString('en-US');
+const fmt = (value) => value === null || value === undefined ? 'Unavailable' : Number(value).toLocaleString('en-US');
 const element = (tag, className, text) => {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -161,7 +161,7 @@ export class AtlasExplorer {
   displayValue(feature) {
     if (this.metric() === RATE_METRIC) return `${feature.properties.afc_rate_band_label} (AFC estimate)`;
     const value = this.value(feature);
-    return value === null ? 'Not verified' : typeof value === 'number' ? `${fmt(value)}${this.metric().includes('pct') ? '%' : ' identified by LEA'}` : value;
+    return value === null ? (this.layer === 'colleges' ? missingCollegeValue(feature.properties, this.metric()) : 'Unavailable') : typeof value === 'number' ? `${fmt(value)}${this.metric().includes('pct') ? '%' : ' identified by LEA'}` : value;
   }
 
   binIndex(feature) {
@@ -184,7 +184,7 @@ export class AtlasExplorer {
     for (const tab of document.querySelectorAll('[data-atlas-layer]')) tab.setAttribute('aria-pressed', String(tab.dataset.atlasLayer === this.layer));
     document.querySelector('#atlas-timeline').hidden = college;
     document.querySelector('#atlas-college-options').hidden = !college;
-    document.querySelector('#atlas-scope').textContent = college ? '26 CUNY institution records. Two campus survey profiles verified; other values are unknown here. Campus points are not student residences.' : '32 reporting LEAs; counts can duplicate students across agencies. Current reference boundaries, not residences. Published AFC rate ranges use a separate charter-inclusive analysis.';
+    document.querySelector('#atlas-scope').textContent = college ? '26 CUNY institution records. 19 campus survey profiles; 7 institution records have no separate result in this undergraduate export. Campus points are not student residences.' : '32 reporting LEAs; counts can duplicate students across agencies. Current reference boundaries, not residences. Published AFC rate ranges use a separate charter-inclusive analysis.';
     const old = this.controls.metric.value;
     const choices = college
       ? [
@@ -279,7 +279,7 @@ export class AtlasExplorer {
 
   renderLegend() {
     const container = document.querySelector('#atlas-legend'); container.replaceChildren();
-    const bins = [...this.bins(), { color: '#89918e', label: this.layer === 'colleges' ? 'Not verified here' : 'Unavailable' }];
+    const bins = [...this.bins(), { color: '#89918e', label: this.layer === 'colleges' ? 'No separate result' : 'Unavailable' }];
     bins.forEach((bin, index) => {
       const binId = index === bins.length - 1 ? -1 : index;
       const button = element('button', 'atlas-legend-button'); button.type = 'button';
@@ -379,8 +379,8 @@ export class AtlasExplorer {
         if (this.metric() === RATE_METRIC) card.append(element('p', '', `AFC estimated share: ${feature.properties.afc_rate_band_label}`));
         card.append(this.districtBars(feature, maximum, this.colors[index]));
       } else {
-        for (const [label, field] of [['Homelessness', 'homelessness_pct'], ['Housing insecurity', 'housing_insecurity_pct'], ['Rent difficulty', 'rent_increase_difficulty_pct']]) card.append(element('p', '', `${label}: ${feature.properties[field] === null ? 'Not verified' : `${feature.properties[field]}%`}`));
-        card.append(element('p', 'atlas-small', feature.properties.survey_year ? `Spring 2024 · n=${feature.properties.sample_size} total respondents · response ${feature.properties.response_rate_pct}%` : 'No campus survey verified here.'));
+        for (const [label, field] of [['Homelessness', 'homelessness_pct'], ['CUNY housing scale', 'housing_insecurity_pct'], ['Rent difficulty', 'rent_increase_difficulty_pct']]) card.append(element('p', '', `${label}: ${feature.properties[field] === null ? missingCollegeValue(feature.properties, field) : `${feature.properties[field]}%`}`));
+        card.append(element('p', 'atlas-small', feature.properties.survey_year ? (feature.properties.sample_size === null ? 'Spring 2024 · item sample size not supplied here; no confidence interval calculated.' : `Spring 2024 · campus report n=${feature.properties.sample_size} total respondents · response ${feature.properties.response_rate_pct}%`) : 'No separate result in this undergraduate export.'));
         if (feature.properties.survey_source) { const a = element('a', '', 'Read survey ↗'); a.href = feature.properties.survey_source; card.append(a); }
       }
       container.append(card);

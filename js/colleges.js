@@ -9,7 +9,7 @@ export const typeColors = {
 
 export const metrics = {
   homelessness_pct: { title: 'Reported homelessness · 2024 (%)', bins: [{ max: 5, color: '#72abb9', label: '0–<5%' }, { max: 10, color: '#246c85', label: '5–<10%' }, { max: Infinity, color: '#123f59', label: '10% or more' }] },
-  housing_insecurity_pct: { title: 'Reported housing insecurity · 2024 (%)', bins: [{ max: 20, color: '#cbc0dc', label: '0–<20%' }, { max: 40, color: '#8972a6', label: '20–<40%' }, { max: Infinity, color: '#55416e', label: '40% or more' }] },
+  housing_insecurity_pct: { title: 'CUNY housing insecurity scale · 2024 (%)', bins: [{ max: 20, color: '#cbc0dc', label: '0–<20%' }, { max: 40, color: '#8972a6', label: '20–<40%' }, { max: Infinity, color: '#55416e', label: '40% or more' }] },
   rent_increase_difficulty_pct: { title: 'Rent increase made payment difficult · 2024 (%)', bins: [{ max: 20, color: '#dbbc89', label: '0–<20%' }, { max: 40, color: '#b78c42', label: '20–<40%' }, { max: Infinity, color: '#805b23', label: '40% or more' }] },
 };
 
@@ -17,6 +17,10 @@ export function collegeColor(properties, metric) {
   if (metric === 'institution_type') return typeColors[properties.institution_type] || '#65766f';
   const value = properties[metric];
   return value === null ? '#89918e' : metrics[metric].bins.find((bin) => value < bin.max).color;
+}
+
+export function missingCollegeValue(properties, metric) {
+  return properties.evidence_status === 'outside_survey' ? 'No separate survey result' : metric === 'housing_insecurity_pct' ? 'Scale result unavailable' : 'Item result unavailable';
 }
 
 function line(parent, text) {
@@ -34,10 +38,10 @@ export function campusCard(properties) {
   line(card, properties.address);
   line(card, `Evidence review: ${evidenceStatuses[properties.evidence_status] || 'Not yet checked'}. ${properties.review_note || ''}`);
   if (properties.survey_year) {
-    for (const [label, field] of [['Homelessness', 'homelessness_pct'], ['Housing insecurity', 'housing_insecurity_pct'], ['Rent increase difficulty', 'rent_increase_difficulty_pct'], ['Unable to pay / underpaid rent', 'underpaid_rent_pct']]) {
-      line(card, `${label}: ${properties[field] === null ? 'Not verified here' : `${properties[field]}%`}`);
+    for (const [label, field] of [['Homelessness', 'homelessness_pct'], ['CUNY housing scale', 'housing_insecurity_pct'], ['Rent increase difficulty', 'rent_increase_difficulty_pct'], ['Unable to pay / underpaid rent', 'underpaid_rent_pct']]) {
+      line(card, `${label}: ${properties[field] === null ? missingCollegeValue(properties, field) : `${properties[field]}%`}`);
     }
-    line(card, `Spring ${properties.survey_year} · past 12 months. Total survey respondents: ${properties.sample_size}; response rate: ${properties.response_rate_pct}%.`);
+    line(card, `Spring ${properties.survey_year} · past 12 months. ${properties.sample_size === null ? 'Campus total response information not included in this extract.' : `Campus report total respondents: ${properties.sample_size}; response rate: ${properties.response_rate_pct}%.`}`);
     line(card, `Question: “${properties.question_wording}” Reference period: ${properties.recall_period}. Population: ${properties.survey_population}.`);
     line(card, properties.weighting);
     line(card, properties.uncertainty_note);
@@ -47,7 +51,7 @@ export function campusCard(properties) {
     source.textContent = `Survey source · ${properties.source_pages} ↗`;
     card.append(source);
   } else {
-    line(card, 'A campus homelessness figure has not yet been verified in this project. This does not mean no students experience homelessness.');
+    line(card, 'This institution has no separate column in the checked 2024 undergraduate dashboard. A missing figure does not mean no students experience homelessness.');
   }
   if (!properties.survey_year && properties.review_source) {
     const reviewed = document.createElement('a'); reviewed.href = properties.review_source; reviewed.textContent = 'Reviewed campus source ↗'; card.append(reviewed);
@@ -121,7 +125,7 @@ export class CollegeExplorer {
       const name = document.createElement('span');
       name.textContent = feature.properties.name;
       const value = document.createElement('small');
-      value.textContent = this.metric === 'institution_type' ? feature.properties.institution_type : feature.properties[this.metric] === null ? 'Not verified' : `${feature.properties[this.metric]}%`;
+      value.textContent = this.metric === 'institution_type' ? feature.properties.institution_type : feature.properties[this.metric] === null ? missingCollegeValue(feature.properties, this.metric) : `${feature.properties[this.metric]}%`;
       button.append(dot, name, value);
       button.addEventListener('click', () => this.select(feature));
       list.append(button);

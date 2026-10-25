@@ -1,6 +1,8 @@
 # A Stable Home, A School to Keep
 
-Student homelessness is personal to me. I want to understand how students in New York City continue their education when they do not have a stable place to live, and where housing support could make a difference.
+A school offers continuity. Housing helps determine whether a student can hold on to it.
+
+Through HAQI Partners, I advise congregations and nonprofits across New York City and Westchester County on affordable housing and the future of their properties. This project asks what a home makes possible for the people who live there—and how the city can preserve a student’s education when their address changes.
 
 I started with reported student homelessness across NYC's 32 geographic school districts from 2021–22 through 2023–24. I then added CUNY institution locations and the campus survey results I have checked so far. My background is in construction, real estate, and housing research. This project connects that work to a question I care about: what does it take for a student to have both a place to live and a chance to keep learning?
 
@@ -19,13 +21,15 @@ Readers can follow the story or explore the map, compare districts and colleges,
 - **Later citywide context:** [Advocates for Children, Student Homelessness in NYC, 2024–25](https://advocatesforchildren.org/policy-resource/student-homelessness-data-2025/). The “nearly one in seven” figure comes from this later school year, not the three-year workbook.
 - **Campus support information:** [Queensborough Advocacy Resource Center](https://www.qcc.cuny.edu/arc/index.html) and [LaGuardia student services](https://laguardia.catalog.cuny.edu/student-programs-and-services/student-services/overview).
 
+- **Central campus comparisons:** [CUNY Student Experience Survey](https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/Intro), explicitly filtered to 2024 housing results. Published university estimates: 5% homelessness, 49% housing insecurity scale. [Analysis, filters, and source differences](docs/evidence/statistical-analysis.md).
+
 ## How I am reading the data
 
 School district counts and college survey percentages measure different things. I keep them separate. Students may appear in more than one education agency's records, so adding district counts would not give a unique citywide total. Separate charter records, District 75, and central office records are not included in the district map.
 
-The college map currently covers CUNY, with survey results checked for Queensborough and LaGuardia. Missing values mean I have not verified a figure for that campus; they do not mean zero. Homelessness, housing insecurity, and rent difficulty can overlap and should not be added together.
+The college map covers CUNY, with 2024 central-dashboard results for 19 campuses. Seven other institution records have no separate result in the checked undergraduate export; they do not mean zero. Homelessness, housing insecurity, and rent difficulty can overlap and should not be added together.
 
-The map does not show students' home locations. It also does not explain what caused a change or establish that a particular service failed. I checked the available boundary metadata and attempted to retrieve the historical archives, but access failed. Historical boundary consistency remains unresolved, so the map explicitly uses 2026 reference geometry. I have not confirmed current service availability. Five additional campus source pages have been reviewed without establishing comparable figures; the other campus reports remain unchecked. K–12 and college data describe different populations, not the same people over time.
+The map does not show students' home locations. It also does not explain what caused a change or establish that a particular service failed. I checked the available boundary metadata and attempted to retrieve the historical archives, but access failed. Historical boundary consistency remains unresolved, so the map explicitly uses 2026 reference geometry. I have not confirmed current service availability. The central housing scale differs from the narrower Queensborough four-item composite; LaGuardia rent difficulty differs by one point between its report and the dashboard. The map consistently uses central-dashboard estimates. K–12 and college data describe different populations, not the same people over time.
 
 The [evidence audit](docs/evidence/audit.md) records what I verified and what remains open. [Interview questions and a consent approach](docs/interview-guide.md) are prepared; no interviews or outreach have been conducted.
 

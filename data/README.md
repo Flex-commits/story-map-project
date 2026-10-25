@@ -50,18 +50,14 @@ python3 scripts/prepare_colleges.py
 
 Review statuses:
 
-- `available`: campus figures checked against a published report (2).
-- `reviewed_pending`: a campus source was reviewed without establishing a comparable 2024 percentage (5).
-- `not_yet_checked`: no campus-specific review completed (19).
+- `available`: 19 campus columns with published 2024 central-dashboard results.
+- `outside_survey`: seven institution records with no separate column in this undergraduate export. Not zero, and not proof that other research does not exist.
 
-No campus is classified as having no public data simply because a value was not found. Some Graduate Center internal reports explicitly require login; public reports also exist. See `raw/evidence/campus-review.json` and [public-source review](../docs/evidence/public-source-review.json).
+The retained `raw/evidence/cuny-ses-2024-*-housing.csv` files contain the public dashboard's Housing Insecurity subsection. Exact year/section/sector filters, hashes and institution crosswalk are recorded in `raw/evidence/cuny-ses-2024-extract.json`. Use `Numeric Display Calculation` for published whole percentages; the weighted-frequency fields are not extra-precision estimates or unweighted sample counts.
 
-Verified profiles:
+All mapped campus comparisons use the central dashboard. Queensborough's central housing scale is 44%; its campus report gives 38% for a four-item composite. LaGuardia's central rent difficulty is 39%, versus 40% in its campus report. Do not silently equate these measures or resolve discrepancies by averaging. See [analysis notes](../docs/evidence/statistical-analysis.md) for details, independent cross-checks, uncertainty and reproduction steps.
 
-- [Queensborough 2024](https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf): homelessness 4%; four-item housing-insecurity composite 38%; difficult rent increase 31%; unpaid/underpaid rent 17%. Total respondents 474; response rate 12%. Printed pages 3, 5, 21–23.
-- [LaGuardia 2024](https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf): homelessness 5%; difficult rent increase 40%; unpaid/underpaid rent 21%. Total respondents 747; response rate 14.9%. Printed pages 1 and 11. No overall housing-insecurity figure assigned.
-
-The public [CUNY dashboard](https://www.cuny.edu/about/administration/offices/oareda/insights-reporting-analytics/) confirms a spring 2024 random sample of degree-seeking undergraduates, college-level post-stratification raking, variable item denominators, and suppression below 25 respondents. Total sample sizes are not item denominators. No significance tests or confidence intervals are established here. Null is not zero. The four-item composite includes the homelessness item; never add the measures. No survey rate is converted into a headcount or imputed to another campus.
+The survey is spring 2024, degree-seeking undergraduates, past 12 months. Central methods describe post-stratification raking and suppression below 25 responses. No item sample sizes, confidence intervals or significance tests are inferred from weighted frequencies. No percentages are converted into headcounts.
 
 Campus support links are descriptions, not verified availability, eligibility, or outcomes: [Queensborough ARC](https://www.qcc.cuny.edu/arc/index.html), [LaGuardia catalog](https://laguardia.catalog.cuny.edu/student-programs-and-services/student-services/overview).
 

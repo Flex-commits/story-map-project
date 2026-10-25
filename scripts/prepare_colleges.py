@@ -1,7 +1,7 @@
 """Prepare official CUNY institution points plus explicitly verified survey fields.
 
 Run after downloading https://data.ny.gov/resource/irqs-74ez.json?$limit=100
-Missing survey values mean not verified in this project, not zero or absent data.
+Missing survey values mean no separate column in this undergraduate export, not zero.
 """
 import csv
 import json
@@ -31,6 +31,7 @@ SOURCES = {
  },
 }
 review = json.loads((ROOT / 'data/raw/evidence/campus-review.json').read_text())
+extract = json.loads((ROOT / 'data/raw/evidence/cuny-ses-2024-extract.json').read_text())
 rows = json.loads((ROOT / 'data/raw/cuny-campus-locations.json').read_text())
 features = []
 for index, row in enumerate(rows):
@@ -48,25 +49,37 @@ for index, row in enumerate(rows):
  if p['name'] in review['campuses']:
   checked = review['campuses'][p['name']]
   p.update(evidence_status=checked['status'], review_source=checked['url'], review_note=checked['note'])
- if p['name'] in SOURCES:
-  p.update(SOURCES[p['name']]); p['survey_year'] = 2024
-  p.update(evidence_status='available', review_source=p['survey_source'],
-           review_note='Campus figures checked against the published 2024 report.',
+ if p['name'] in extract['campuses']:
+  if p['name'] in SOURCES:
+   p.update(SOURCES[p['name']])
+  p.update(extract['campuses'][p['name']])
+  sector = 'Community Colleges' if p['institution_type'] == 'Community Colleges' else 'Senior Colleges'
+  source = next(f for f in extract['files'] if f['sector'] == sector)
+  p.update(survey_year=2024, evidence_status='available', survey_source=source['view_url'], review_source=source['view_url'],
+           review_note='2024 housing results extracted from the public CUNY dashboard; published whole-percent values.',
            survey_population='Degree-seeking undergraduate survey respondents',
-           recall_period='Past 12 months, asked in spring 2024', question_wording='Have you been homeless?',
-           weighting='College-level post-stratification raking; central CUNY SES methods reviewed',
-           uncertainty_note='No confidence intervals or significance tests established here; total respondents are not item denominators.')
-  p['method_note'] = 'Weighted campus survey percentages, not administrative counts. Item denominators can vary; differences are not established as statistically significant.'
+           recall_period='Past 12 months, asked in spring 2024', question_wording='...have you ever been homeless?',
+           weighting='CUNY college-level post-stratification raking; published weighted percentages.',
+           uncertainty_note='Item sample sizes vary. Weighted counts are not unweighted sample sizes; no confidence intervals or significance tests calculated.',
+           source_pages='Select 2024 / Basic Needs / Housing Insecurity; campus column',
+           housing_insecurity_definition='Published CUNY dashboard Housing Insecurity Scale. Exact scoring is not established here; do not equate this with the narrower four-item Queensborough campus-report composite.',
+           method_note='Published whole-percent survey estimates, not administrative counts. Campus comparisons are descriptive, not statistical rankings.')
   if p['name'] == 'Queensborough Community College':
-   p['housing_insecurity_definition'] = 'Yes to at least one of four past-year items: difficult rent increase, unpaid/underpaid rent, unpaid utility bill, or homelessness. This composite includes the homelessness item.'
+   p['review_note'] += ' Central housing scale: 44%; campus report four-item composite: 38%. Different measures, shown separately.'
+  if p['name'] == 'LaGuardia Community College':
+   p['review_note'] += ' Central rent difficulty: 39%; campus report: 40%. Reason for this difference is unresolved; central value used consistently.'
+ else:
+  p.update(evidence_status='outside_survey', review_source=extract['files'][0]['view_url'],
+           review_note='No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution.',
+           method_note='Institution location only. This undergraduate export does not establish a separate prevalence estimate for this record.')
 
  coords=[float(row['long']), float(row['lat'])]
  assert -75 < coords[0] < -73 and 40 < coords[1] < 42
  features.append(dict(type='Feature', id=p['campus_id'], properties=p, geometry=dict(type='Point', coordinates=coords)))
 assert len({f['properties']['name'] for f in features}) == len(features)
-assert sum(f['properties']['homelessness_pct'] is not None for f in features) == 2
+assert sum(f['properties']['homelessness_pct'] is not None for f in features) == 19
 (ROOT/'data/cuny-colleges.geojson').write_text(json.dumps(dict(type='FeatureCollection', features=features), indent=2)+'\n')
 with (ROOT/'data/cuny-colleges.csv').open('w',newline='') as handle:
- writer=csv.DictWriter(handle,fieldnames=[*features[0]['properties'], 'longitude','latitude']);writer.writeheader()
+ writer=csv.DictWriter(handle,fieldnames=[*features[0]['properties'], 'longitude','latitude'],lineterminator="\n");writer.writeheader()
  for f in features:writer.writerow(dict(**f['properties'],longitude=f['geometry']['coordinates'][0],latitude=f['geometry']['coordinates'][1]))
-print(f'Validated {len(features)} institution locations; 2 verified campus survey records.')
+print(f'Validated {len(features)} institution locations; 19 campus survey profiles from the central 2024 dashboard.')

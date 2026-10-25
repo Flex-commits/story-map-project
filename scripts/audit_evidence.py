@@ -46,19 +46,48 @@ for row in rows:
 colleges = read_json('data/cuny-colleges.geojson')['features']
 assert len(colleges) == 26
 statuses = {status: sum(f['properties']['evidence_status'] == status for f in colleges)
-            for status in ('available', 'reviewed_pending', 'not_yet_checked')}
-assert statuses == dict(available=2, reviewed_pending=5, not_yet_checked=19)
+            for status in ('available', 'outside_survey')}
+assert statuses == dict(available=19, outside_survey=7)
 raw_points = {r['campus']: r for r in read_json('data/raw/cuny-campus-locations.json')}
 for feature in colleges:
     p = feature['properties']
     raw = raw_points[p['name']]
     assert feature['geometry']['coordinates'] == [float(raw['long']), float(raw['lat'])]
     if p['evidence_status'] == 'available':
-        assert p['question_wording'] == 'Have you been homeless?'
+        assert p['question_wording'] == '...have you ever been homeless?'
         assert p['recall_period'] == 'Past 12 months, asked in spring 2024'
         assert p['item_sample_size'] is None and p['weighting'] and p['uncertainty_note']
     else:
         assert p['homelessness_pct'] is None and p['housing_insecurity_pct'] is None
+
+extract = read_json('data/raw/evidence/cuny-ses-2024-extract.json')
+for feature in colleges:
+    p = feature['properties']
+    if p['name'] in extract['campuses']:
+        for field, value in extract['campuses'][p['name']].items():
+            assert p[field] == value
+for source_record in extract['files']:
+    assert hashlib.sha256((ROOT / source_record['file']).read_bytes()).hexdigest() == source_record['sha256']
+# Independently compare the four mapped estimates against each source table.
+raw_survey = []
+for table in extract['files']:
+    raw_survey.extend(csv.DictReader((ROOT / table['file']).open()))
+questions = {
+    'homelessness_pct': ('...have you ever been homeless?', 'Yes'),
+    'housing_insecurity_pct': ('% experiencing housing insecurity', 'Housing Insecure'),
+    'rent_increase_difficulty_pct': ('...was there a rent or mortgage increase that made it difficult to pay?', 'Yes'),
+    'underpaid_rent_pct': ('...have you been unable to pay or underpaid your rent or mortgage?', 'Yes'),
+}
+for short_name, full_name in extract['campus_crosswalk'].items():
+    p = next(f['properties'] for f in colleges if f['properties']['name'] == full_name)
+    for field, (question, answer) in questions.items():
+        rows = [r for r in raw_survey if r['College'] == short_name and r['Item'] == question and r['Value'] == answer]
+        assert len(rows) == 1
+        assert p[field] == int(rows[0]['Numeric Display Calculation'].strip().rstrip('%'))
+analysis = read_json('docs/evidence/statistical-analysis.json')
+assert analysis['campuses_with_results'] == 19 and analysis['districts_with_increases'] == 32
+assert analysis['median_district_count_change_pct'] == 42.1
+assert analysis['cuny_published_homelessness_pct'] == 5
 
 
 class Page(HTMLParser):
@@ -95,8 +124,11 @@ for district in (4, 24, 30):
 assert '3,045' in html
 assert round(source[30]['change_pct_2021_22_to_2023_24']) == 131 and '+131%' in html
 assert round(source[4]['change_pct_2021_22_to_2023_24']) == 122 and '122%' in html
+assert 'HAQI Partners' in html and '154,000' in html and '65,000' in html and '82,000' in html
+assert 'This issue is personal to me.' not in html
+assert '42.1%' in html and '49%' in html and '44%' in html
 assert '4%' in html and '38%' in html and '747' in html and '14.9%' in html
 assert '2026 reference boundaries' in html
 assert 'different student populations' in html and 'do not follow the same people' in html
 assert 'I did not interview Christopher' in html
-print('PASS: source hash and 10,530-cell record; all 32 district values; 32 published rate bands; export consistency; 26 campus coordinates; 2/5/19 evidence statuses; survey methods; local links and HTML anchors.')
+print('PASS: source hash and 10,530-cell record; all 32 district values; 32 published rate bands; export consistency; 26 campus coordinates; 19 available / 7 outside survey statuses; survey methods; local links and HTML anchors.')

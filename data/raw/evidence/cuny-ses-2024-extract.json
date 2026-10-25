@@ -1,0 +1,163 @@
+{
+  "retrieved_on": "2026-10-24",
+  "filters": {
+    "year": 2024,
+    "section": "Basic Needs\\, Mental Health\\, & Household Composition"
+  },
+  "files": [
+    {
+      "sector": "Senior Colleges",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults.csv?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "view_url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "file": "data/raw/evidence/cuny-ses-2024-senior-housing.csv",
+      "sha256": "13a4c8080d29598ab04121eb742869764aaf13d68c6c8a7bfe7476da72fc3eb0",
+      "rows": 574
+    },
+    {
+      "sector": "Community Colleges",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults.csv?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "view_url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "file": "data/raw/evidence/cuny-ses-2024-community-housing.csv",
+      "sha256": "231a3d4610a60da73607dc3dd136400ee44be0b039d84a8715b1e8dc225b85df",
+      "rows": 369
+    }
+  ],
+  "campus_crosswalk": {
+    "BMCC": "Borough of Manhattan Community College",
+    "Bronx": "Bronx Community College",
+    "Hostos": "Hostos Community College",
+    "Kingsborough": "Kingsborough Community College",
+    "LaGuardia": "LaGuardia Community College",
+    "Queensborough": "Queensborough Community College",
+    "Guttman": "Guttman Community College",
+    "Medgar Evers": "Medgar Evers College",
+    "NYCCT": "New York City College of Technology",
+    "Staten Island": "College of Staten Island",
+    "Professional Studies": "School of Professional Studies",
+    "Baruch": "Baruch College",
+    "Brooklyn": "Brooklyn College",
+    "City": "The City College of New York",
+    "Hunter": "Hunter College",
+    "John Jay": "John Jay College of Criminal Justice",
+    "Lehman": "Lehman College",
+    "Queens": "Queens College",
+    "York": "York College"
+  },
+  "campuses": {
+    "Borough of Manhattan Community College": {
+      "homelessness_pct": 9,
+      "housing_insecurity_pct": 54,
+      "rent_increase_difficulty_pct": 38,
+      "underpaid_rent_pct": 26
+    },
+    "Bronx Community College": {
+      "homelessness_pct": 7,
+      "housing_insecurity_pct": 57,
+      "rent_increase_difficulty_pct": 37,
+      "underpaid_rent_pct": 24
+    },
+    "Hostos Community College": {
+      "homelessness_pct": 10,
+      "housing_insecurity_pct": 56,
+      "rent_increase_difficulty_pct": 38,
+      "underpaid_rent_pct": 38
+    },
+    "Kingsborough Community College": {
+      "homelessness_pct": 4,
+      "housing_insecurity_pct": 51,
+      "rent_increase_difficulty_pct": 34,
+      "underpaid_rent_pct": 21
+    },
+    "LaGuardia Community College": {
+      "homelessness_pct": 5,
+      "housing_insecurity_pct": 54,
+      "rent_increase_difficulty_pct": 39,
+      "underpaid_rent_pct": 21
+    },
+    "Queensborough Community College": {
+      "homelessness_pct": 4,
+      "housing_insecurity_pct": 44,
+      "rent_increase_difficulty_pct": 31,
+      "underpaid_rent_pct": 17
+    },
+    "Guttman Community College": {
+      "homelessness_pct": 5,
+      "housing_insecurity_pct": 51,
+      "rent_increase_difficulty_pct": 19,
+      "underpaid_rent_pct": 16
+    },
+    "Medgar Evers College": {
+      "homelessness_pct": 11,
+      "housing_insecurity_pct": 68,
+      "rent_increase_difficulty_pct": 42,
+      "underpaid_rent_pct": 39
+    },
+    "New York City College of Technology": {
+      "homelessness_pct": 5,
+      "housing_insecurity_pct": 46,
+      "rent_increase_difficulty_pct": 34,
+      "underpaid_rent_pct": 18
+    },
+    "College of Staten Island": {
+      "homelessness_pct": 6,
+      "housing_insecurity_pct": 44,
+      "rent_increase_difficulty_pct": 28,
+      "underpaid_rent_pct": 17
+    },
+    "School of Professional Studies": {
+      "homelessness_pct": 4,
+      "housing_insecurity_pct": 60,
+      "rent_increase_difficulty_pct": 45,
+      "underpaid_rent_pct": 29
+    },
+    "Baruch College": {
+      "homelessness_pct": 1,
+      "housing_insecurity_pct": 39,
+      "rent_increase_difficulty_pct": 29,
+      "underpaid_rent_pct": 12
+    },
+    "Brooklyn College": {
+      "homelessness_pct": 3,
+      "housing_insecurity_pct": 43,
+      "rent_increase_difficulty_pct": 32,
+      "underpaid_rent_pct": 13
+    },
+    "The City College of New York": {
+      "homelessness_pct": 4,
+      "housing_insecurity_pct": 50,
+      "rent_increase_difficulty_pct": 34,
+      "underpaid_rent_pct": 20
+    },
+    "Hunter College": {
+      "homelessness_pct": 3,
+      "housing_insecurity_pct": 44,
+      "rent_increase_difficulty_pct": 31,
+      "underpaid_rent_pct": 17
+    },
+    "John Jay College of Criminal Justice": {
+      "homelessness_pct": 4,
+      "housing_insecurity_pct": 51,
+      "rent_increase_difficulty_pct": 37,
+      "underpaid_rent_pct": 21
+    },
+    "Lehman College": {
+      "homelessness_pct": 7,
+      "housing_insecurity_pct": 53,
+      "rent_increase_difficulty_pct": 40,
+      "underpaid_rent_pct": 26
+    },
+    "Queens College": {
+      "homelessness_pct": 2,
+      "housing_insecurity_pct": 44,
+      "rent_increase_difficulty_pct": 28,
+      "underpaid_rent_pct": 15
+    },
+    "York College": {
+      "homelessness_pct": 2,
+      "housing_insecurity_pct": 47,
+      "rent_increase_difficulty_pct": 31,
+      "underpaid_rent_pct": 20
+    }
+  },
+  "validation": "Filtered dashboard visibly shows 2024, requested sector and Basic Needs section. Homelessness QCC 4% and LaGuardia 5%, QCC rent difficulty 31%, and both rent-underpayment figures match campus PDFs. LaGuardia rent difficulty is 39% in central dashboard versus 40% in campus PDF; use central 39% for consistent comparisons, reason not established. QCC central housing scale 44% differs from campus four-item composite 38%; retained as different measures, no reconciliation inferred."
+}

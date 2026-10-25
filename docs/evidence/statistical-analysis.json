@@ -1,0 +1,17 @@
+{
+  "reviewed_on": "2026-10-24",
+  "district_records": 32,
+  "districts_with_increases": 32,
+  "median_district_count_change_pct": 42.1,
+  "min_district_count_change_pct": 10.9,
+  "max_district_count_change_pct": 131.1,
+  "campus_records": 26,
+  "campuses_with_results": 19,
+  "campuses_without_separate_result": 7,
+  "campus_homelessness_published_range_pct": [
+    1,
+    11
+  ],
+  "cuny_published_homelessness_pct": 5,
+  "cuny_published_housing_scale_pct": 49
+}

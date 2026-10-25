@@ -31,8 +31,8 @@ function renderLegend(slide) {
   const items = document.querySelector('#legend-items');
   items.replaceChildren();
   document.querySelector('.legend small').textContent = isCollege ? 'Campus locations · not student residences' : slide.dataset.metric === RATE_METRIC ? 'AFC published analysis · current reference boundaries' : 'Reporting LEAs · not residence locations';
-  document.querySelector('#map-method-text').textContent = isCollege ? 'Campus locations, not residences. Spring 2024 degree-seeking undergraduate surveys ask about the past 12 months. Two campus profiles are verified; a review status does not imply zero homelessness or that no public evidence exists.' : slide.dataset.metric === RATE_METRIC ? `${RATE_NOTE} DCP 2026 reference boundaries; historical consistency not established.` : GEOGRAPHY_NOTE;
-  const entries = isCollege ? metric === 'institution_type' ? Object.entries(typeColors).map(([label, color]) => ({ label, color })) : [...metrics[metric].bins, { color: '#89918e', label: 'Not verified in this project' }] : [...binsFor(slide), { color: '#cccccc', label: 'Unavailable' }];
+  document.querySelector('#map-method-text').textContent = isCollege ? 'Campus locations, not residences. Spring 2024 degree-seeking undergraduate surveys ask about the past 12 months. 19 campuses have central-dashboard results; seven institution records have no separate undergraduate result. Survey differences are descriptive, not significance tests.' : slide.dataset.metric === RATE_METRIC ? `${RATE_NOTE} DCP 2026 reference boundaries; historical consistency not established.` : GEOGRAPHY_NOTE;
+  const entries = isCollege ? metric === 'institution_type' ? Object.entries(typeColors).map(([label, color]) => ({ label, color })) : [...metrics[metric].bins, { color: '#89918e', label: 'No separate survey result' }] : [...binsFor(slide), { color: '#cccccc', label: 'Unavailable' }];
   for (const bin of entries) {
     const row = document.createElement('div');
     row.className = 'legend-row';

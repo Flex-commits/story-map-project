@@ -10,6 +10,7 @@ export const RATE_NOTE = 'AFC published ranges · 2023–24 cumulative enrollmen
 export const GEOGRAPHY_NOTE = 'Reporting LEAs, not student residences. DCP 2026 reference boundaries; historical consistency not established.';
 export const evidenceStatuses = {
   available: 'Campus figures available',
+  outside_survey: 'No separate undergraduate survey result',
   reviewed_pending: 'Source reviewed; comparable figure pending',
   not_yet_checked: 'Campus report not yet checked',
 };

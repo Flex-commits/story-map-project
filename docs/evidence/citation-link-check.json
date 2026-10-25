@@ -1,0 +1,108 @@
+{
+  "checked_on": "2026-10-24",
+  "method": "GET with first 1KB read; HTTP success verifies reachability, not claim accuracy. Source review is recorded separately.",
+  "links": [
+    {
+      "url": "https://advocatesforchildren.org/wp-content/uploads/2024/nyc_student_homelessness_2024.pdf",
+      "status": 200,
+      "resolved_url": "https://advocatesforchildren.org/wp-content/uploads/2024/nyc_student_homelessness_2024.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "url": "https://advocatesforchildren.org/wp-content/uploads/2024/sth_edu_indicators_2023.pdf",
+      "status": 200,
+      "resolved_url": "https://advocatesforchildren.org/wp-content/uploads/2024/sth_edu_indicators_2023.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "url": "https://advocatesforchildren.org/wp-content/uploads/2025/student_homelessness_2024-25.pdf",
+      "status": 200,
+      "resolved_url": "https://advocatesforchildren.org/wp-content/uploads/2025/student_homelessness_2024-25.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "url": "https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u",
+      "status": 200,
+      "resolved_url": "https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://data.ny.gov/d/irqs-74ez",
+      "status": 200,
+      "resolved_url": "https://data.ny.gov/Education/City-University-of-New-York-CUNY-University-Campus/irqs-74ez",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "status": 200,
+      "resolved_url": "https://insights.cuny.edu/#/site/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "status": 200,
+      "resolved_url": "https://insights.cuny.edu/#/site/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/Intro",
+      "status": 200,
+      "resolved_url": "https://insights.cuny.edu/#/site/CUNYGuest/views/2026StudentExperienceSurvey/Intro",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://www.bcc.cuny.edu/a-veterans-journey-from-a-homeless-shelter-to-columbia-university/",
+      "status": 200,
+      "resolved_url": "https://www.bcc.cuny.edu/a-veterans-journey-from-a-homeless-shelter-to-columbia-university/",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://www.cuny.edu/about/administration/offices/student-affairs/programs-services/cuny-resource-centers/",
+      "status": 200,
+      "resolved_url": "https://www.cuny.edu/about/administration/offices/student-affairs/programs-services/cuny-resource-centers/",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://www.habitat.org/stories/a-conversation-with-matthew-desmond",
+      "status": 200,
+      "resolved_url": "https://www.habitat.org/stories/a-conversation-with-matthew-desmond",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf",
+      "status": 200,
+      "resolved_url": "https://www.laguardia.edu/wp-content/uploads/2025/01/cuny-student-experience-survey-2024.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "url": "https://www.nysed.gov/sites/default/files/programs/information-reporting-services/sirs-manual-2023-2024.pdf",
+      "status": 200,
+      "resolved_url": "https://www.nysed.gov/sites/default/files/programs/information-reporting-services/sirs-manual-2023-2024.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "url": "https://www.nysteachs.org/_files/ugd/60b30b_705222e6c2654836a50931c50c6da244.xlsx?dn=SED-SIRS-3-Year-Summary-2022-2024.xlsx",
+      "status": 200,
+      "resolved_url": "https://05303efd-44dd-4eb6-9d00-03e00fa3e2be.filesusr.com/ugd/60b30b_705222e6c2654836a50931c50c6da244.xlsx?dn=SED-SIRS-3-Year-Summary-2022-2024.xlsx",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "url": "https://www.nysteachs.org/grantees",
+      "status": 200,
+      "resolved_url": "https://www.nysteachs.org/grantees",
+      "content_type": "text/html; charset=UTF-8"
+    },
+    {
+      "url": "https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf",
+      "status": 200,
+      "resolved_url": "https://www.qcc.cuny.edu/oira/docs/StudentExperienceSurvey_Spring24.pdf",
+      "content_type": "application/pdf"
+    },
+    {
+      "url": "https://www.schools.nyc.gov/school-life/special-situations/students-in-temporary-housing/",
+      "status": 200,
+      "resolved_url": "https://www.schools.nyc.gov/school-life/special-situations/students-in-temporary-housing/",
+      "content_type": "text/html; charset=utf-8"
+    }
+  ]
+}

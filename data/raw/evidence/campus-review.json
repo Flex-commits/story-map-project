@@ -2,13 +2,165 @@
   "reviewed_on": "2026-10-24",
   "central_source": "https://www.cuny.edu/about/administration/offices/oareda/insights-reporting-analytics/",
   "dashboard": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/Intro",
-  "central_method": "The public dashboard describes a 50% random sample of degree-seeking undergraduates in spring 2024, fielded April 10–June 5; 7,035 complete responses, 8.6% response rate. College estimates use post-stratification raking. Item respondent numbers vary; frequencies with fewer than 25 respondents are suppressed. No unverified campus values have been extracted or imputed.",
-  "campuses": {
-    "Bronx Community College": {"status":"reviewed_pending","url":"https://www.bcc.cuny.edu/academics/oie/surveys/survey-calendar/","note":"The public calendar confirms a spring 2024 SES administration. A comparable campus homelessness percentage was not verified from that page."},
-    "New York City College of Technology": {"status":"reviewed_pending","url":"https://www.citytech.cuny.edu/aire/ses.aspx","note":"Public SES resources reviewed. A comparable 2024 campus homelessness percentage has not been established; the central dashboard remains a follow-up source."},
-    "Queens College": {"status":"reviewed_pending","url":"https://www.qc.cuny.edu/oie/surveys/","note":"Public survey page reviewed; it links 2022 results and other surveys. A comparable 2024 homelessness percentage was not verified."},
-    "Brooklyn College": {"status":"reviewed_pending","url":"https://www.brooklyn.edu/provost/institutional-effectiveness/survey-services/","note":"Public survey resources include a different 2020 survey. No comparable 2024 campus homelessness value verified; older results are not substituted."},
-    "The Graduate School and University Center": {"status":"reviewed_pending","url":"https://www.gc.cuny.edu/institutional-research-and-effectiveness/newsletters-and-reports","note":"Public graduate survey and housing-report listings reviewed. Internal reports require CUNYfirst login, but public reports also exist. No comparable 2024 undergraduate homelessness result is assigned to this graduate institution."}
+  "central_method": "The public dashboard describes a 50% random sample of degree-seeking undergraduates in spring 2024, fielded April 10\u2013June 5; 7,035 complete responses, 8.6% response rate. College estimates use post-stratification raking. Item respondent numbers vary; frequencies with fewer than 25 respondents are suppressed. No unverified campus values have been extracted or imputed.",
+  "availability_rule": "19 separate undergraduate campus columns have published 2024 dashboard estimates; seven institution records have no separate column in this export. This does not establish absence of other public research. No missing values imputed.",
+  "initial_campus_page_reviews": {
+    "Bronx Community College": {
+      "status": "reviewed_pending",
+      "url": "https://www.bcc.cuny.edu/academics/oie/surveys/survey-calendar/",
+      "note": "The public calendar confirms a spring 2024 SES administration. A comparable campus homelessness percentage was not verified from that page."
+    },
+    "New York City College of Technology": {
+      "status": "reviewed_pending",
+      "url": "https://www.citytech.cuny.edu/aire/ses.aspx",
+      "note": "Public SES resources reviewed. A comparable 2024 campus homelessness percentage has not been established; the central dashboard remains a follow-up source."
+    },
+    "Queens College": {
+      "status": "reviewed_pending",
+      "url": "https://www.qc.cuny.edu/oie/surveys/",
+      "note": "Public survey page reviewed; it links 2022 results and other surveys. A comparable 2024 homelessness percentage was not verified."
+    },
+    "Brooklyn College": {
+      "status": "reviewed_pending",
+      "url": "https://www.brooklyn.edu/provost/institutional-effectiveness/survey-services/",
+      "note": "Public survey resources include a different 2020 survey. No comparable 2024 campus homelessness value verified; older results are not substituted."
+    },
+    "The Graduate School and University Center": {
+      "status": "reviewed_pending",
+      "url": "https://www.gc.cuny.edu/institutional-research-and-effectiveness/newsletters-and-reports",
+      "note": "Public graduate survey and housing-report listings reviewed. Internal reports require CUNYfirst login, but public reports also exist. No comparable 2024 undergraduate homelessness result is assigned to this graduate institution."
+    }
   },
-  "availability_rule": "Not finding a value is not evidence it is unpublished. No campus is classified as having no publicly available homelessness data. Restricted access applies only to specifically identified internal reports. All other unreviewed campuses remain not_yet_checked."
+  "campuses": {
+    "Borough of Manhattan Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Bronx Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Hostos Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Kingsborough Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "LaGuardia Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values. Central rent difficulty: 39%; campus report: 40%. Reason for this difference is unresolved; central value used consistently."
+    },
+    "Queensborough Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values. Central housing scale: 44%; campus report four-item composite: 38%. Different measures, shown separately."
+    },
+    "Guttman Community College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Community+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Medgar Evers College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "New York City College of Technology": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "College of Staten Island": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "School of Labor and Urban Studies": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "School of Law": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "The Graduate School and University Center": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "School of Professional Studies": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "School of Public Health": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "School of Journalism": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "Macaulay Honors College": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "Baruch College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Brooklyn College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "The City College of New York": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "School of Medicine": {
+      "status": "outside_survey",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "No separate institution column in the checked 2024 undergraduate dashboard. No value inferred from another institution."
+    },
+    "Hunter College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "John Jay College of Criminal Justice": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Lehman College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "Queens College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    },
+    "York College": {
+      "status": "available",
+      "url": "https://insights.cuny.edu/t/CUNYGuest/views/2026StudentExperienceSurvey/AllResults?year=2024&Section=Basic+Needs%5C%2C+Mental+Health%5C%2C+%26+Household+Composition&Parameters.Sector+Selector=Senior+Colleges",
+      "note": "2024 housing results extracted from the public CUNY dashboard; published whole-percent values."
+    }
+  }
 }
