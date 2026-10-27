@@ -1,0 +1,3 @@
+shapely==2.0.7
+pyproj==3.6.1
+numpy==2.0.2

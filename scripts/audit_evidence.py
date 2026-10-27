@@ -89,6 +89,13 @@ assert analysis['campuses_with_results'] == 19 and analysis['districts_with_incr
 assert analysis['median_district_count_change_pct'] == 42.1
 assert analysis['cuny_published_homelessness_pct'] == 5
 
+release = read_json('data/release-metadata.json')
+for item in release['files']:
+    assert hashlib.sha256((ROOT / item['path']).read_bytes()).hexdigest() == item['sha256'], item['path']
+geometry_report = read_json('docs/evidence/geometry-validation.json')
+assert geometry_report['valid_display_features'] == 32
+assert geometry_report['display_sha256'] == hashlib.sha256((ROOT / 'data/nyc-district-display.geojson').read_bytes()).hexdigest()
+
 
 class Page(HTMLParser):
     def __init__(self):

@@ -4,11 +4,11 @@
 
 A school offers continuity. Housing helps determine whether a student can hold on to it. This project asks: **when a student’s address changes, how can the city help preserve the continuity of their education?**
 
-[Open the story map ↗](https://flex-commits.github.io/story-map-project/) · [District GeoJSON](data/nyc-student-homelessness-districts.geojson) · [CUNY GeoJSON](data/cuny-colleges.geojson) · [Data dictionary](data/README.md)
+[Open the story map ↗](https://flex-commits.github.io/story-map-project/) · [Validated display GeoJSON](data/nyc-district-display.geojson) · [CUNY GeoJSON](data/cuny-colleges.geojson) · [Data dictionary](data/README.md)
 
 ## Read the city through its geography
 
-The story moves from citywide context to school-district reporting patterns, then to housing instability among CUNY undergraduates. The interactive atlas lets readers change school years, inspect individual features, filter by borough and measure, compare up to three records, and download the evidence behind a selection. Color legends also work as filters; shared links preserve an atlas view.
+The story moves from citywide context to school-district reporting patterns, then to housing instability among CUNY undergraduates. The interactive atlas lets readers change school years, inspect individual features, filter by borough and measure, compare up to three records, and download the evidence behind a selection. Color legends also work as filters; shared links preserve an atlas view. Counts use proportional circles with a fixed cross-year scale. Campus estimates have descriptive color ranges, a continuous housing-scale option, and an exact-value dot chart; shared-location institutions remain independently selectable.
 
 The opening uses AFC’s **2024–25 citywide findings**. The district count maps cover **2021–22 through 2023–24**, and college survey results describe **spring 2024 answers about the preceding 12 months**. These periods remain distinct throughout the project.
 
@@ -28,7 +28,7 @@ Seven institution records have no separate column in the checked undergraduate s
 
 The spatial files are GeoJSON FeatureCollections with WGS84 longitude/latitude coordinates in **`[longitude, latitude]` order**. Leaflet renders the story and atlas using its default Web Mercator display. Coordinate storage and map display are separate; the project does not calculate distances or travel times.
 
-The district preparation script groups 33 source boundary features into 32 MultiPolygons by DCP’s `schooldist` identifier, then joins the workbook’s `NYC GEOG DIST` records by district number. This is an identifier join, not a geocoding exercise or a point-in-polygon assignment of student residences. BEDS identifiers remain text. District coordinates are rounded to six decimal places; that precision does not establish positional accuracy.
+The district preparation script groups 33 source boundary features into 32 MultiPolygons by DCP’s `schooldist` identifier, then joins the workbook’s `NYC GEOG DIST` records by district number. This is an identifier join, not a geocoding exercise or a point-in-polygon assignment of student residences. BEDS identifiers remain text. The original derived file rounds district coordinates to six decimal places; that precision does not establish positional accuracy. The maps now use a separate validated display derivative built from the fuller-precision original source. Repairs are documented, not presented as new official boundaries. Original files remain available for audit.
 
 District geometry comes from [NYC Department of City Planning, School Districts](https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u), release **26b (2026)**. Historical boundary consistency over 2021–24 has not been established. The application labels these as reference boundaries rather than claiming they reconstruct each school year. [Boundary review](docs/evidence/boundary-review.md).
 
@@ -85,7 +85,23 @@ python3 scripts/analyze_evidence.py
 python3 scripts/audit_evidence.py
 ```
 
-The audit checks district values against the workbook, campus percentages against retained survey tables, source hashes, published rate categories, point coordinates, and local page references. Geometry checks cover identifiers, coordinate bounds, and ring closure; they do not establish full topological validity or historical boundary stability.
+The audit checks district values against the workbook, campus percentages against retained survey tables, source hashes, published rate categories, point coordinates, and local page references. The spatial validation checks source and derived geometry validity, within-district symbol anchors, and inter-district intersections. All 32 display features validate; original geometry issues and repairs are recorded. Historical boundary stability and completeness against an independent coverage mask remain unresolved.
+
+## Validate the spatial release
+
+```sh
+python3 -m venv .venv-spatial
+.venv-spatial/bin/python -m pip install -r requirements-spatial.txt
+.venv-spatial/bin/python scripts/validate_geometry.py
+python3 scripts/build_release_metadata.py
+npm ci
+npm test
+npm run test:browser
+```
+
+The browser check starts its own local server and uses installed Chrome/Chromium; set `CHROME_BIN` when its path differs. `npm test` runs the evidence audit, cartographic/data-loading tests, and lint. The geometry command retains original inputs and rebuilds the documented display derivative and its exact gzip copy. Compression is lossless; no geometry simplification is applied. The common loader fetches the geometry once for both map modes and falls back to plain GeoJSON when needed.
+
+See the [geometry report](docs/evidence/geometry-validation.json), [release metadata](data/release-metadata.json), [measure dictionary](docs/measure-dictionary.md), and [implementation status](docs/evidence/implementation-status.md). Local browser resource timings are recorded separately from real mobile-network performance; they do not establish a field performance improvement.
 
 ## The question beyond the map
 

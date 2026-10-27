@@ -1934,3 +1934,120 @@ h1.opening-title {
     font-size: clamp(40px, 9.6vw, 66px);
   }
 }
+
+.metric-caution, .size-key {
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.shared-campus-choice {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-block: 0.5rem;
+  padding: 0.6rem;
+  border: 1px solid #776881;
+  color: #302d29;
+  background: #f6f0e5;
+  text-align: left;
+  cursor: pointer;
+}
+
+.campus-distribution {
+  padding-block: 0.75rem;
+}
+
+.distribution-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(70px, 1fr) 3rem;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.45rem 0;
+  border: 0;
+  border-bottom: 1px solid #c7bcaa;
+  color: #302d29;
+  background: transparent;
+  text-align: left;
+  font: 0.7rem / 1.5 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+
+.distribution-track {
+  height: 2px;
+  position: relative;
+  background: #9a9185;
+}
+
+.distribution-dot {
+  position: absolute;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #51346c;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.continuous-key {
+  padding-top: 1rem;
+  border-top: 10px solid;
+  border-image: linear-gradient(to right, #f2ecf8, #51346c) 1;
+  font-size: 0.7rem;
+}
+
+.count-size-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.25rem 0.6rem 0.4rem 0;
+  font-size: 0.7rem;
+}
+
+.count-size-swatch {
+  display: inline-block;
+  border: 1px solid #743b30;
+  border-radius: 50%;
+  background: #a65c3ea6;
+}
+
+.geographic-label {
+  color: #3d514d;
+  text-align: center;
+  text-shadow: 0 0 3px #f6f0e5, 0 0 3px #f6f0e5;
+  font: 600 10px / 1.2 'DM Sans', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.guided-tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block: 1rem;
+}
+
+.guided-task-button {
+  min-height: 44px;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #8a7c69;
+  background: #f6f0e5;
+  color: #302d29;
+  cursor: pointer;
+}
+
+#campus-color-mode, #atlas-color-mode {
+  width: 100%;
+  min-height: 44px;
+}
+
+.table-wrap:focus-visible {
+  outline: 3px solid #985336;
+}
+
+#explorer-key summary {
+  min-height: 32px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+}

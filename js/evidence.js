@@ -7,7 +7,7 @@ export const RATE_BINS = [
   { max: Infinity, color: '#4c3268', label: '20% or more' },
 ];
 export const RATE_NOTE = 'AFC published ranges · 2023–24 cumulative enrollment · includes charter pupils · District 75 excluded from district denominators. Separate analysis, not a ratio of the workbook counts. Mapped on 2026 reference boundaries; historical consistency is unresolved.';
-export const GEOGRAPHY_NOTE = 'Reporting LEAs, not student residences. DCP 2026 reference boundaries; historical consistency not established.';
+export const GEOGRAPHY_NOTE = 'Reporting LEAs, not student residences. DCP 2026 reference boundaries; documented display-geometry repair; historical consistency not established.';
 export const evidenceStatuses = {
   available: 'Campus figures available',
   outside_survey: 'No separate undergraduate survey result',

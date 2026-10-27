@@ -1,25 +1,14 @@
+import { districtLayer, addOrientation } from './map-layers.js';
+import { loadData } from './data.js';
+import { COUNT_BINS as countBins, CHANGE_BINS as changeBins, countRadius } from './cartography.js';
 import { RATE_METRIC, RATE_BINS, RATE_NOTE, GEOGRAPHY_NOTE } from './evidence.js';
 import { SlideDeck } from './slidedeck.js';
 import { AtlasExplorer } from './atlas-explorer.js';
-import { CollegeExplorer, collegeColor, campusCard, metrics, typeColors } from './colleges.js';
+import { CollegeExplorer, collegeColor, campusCard, metrics, typeColors, campusLayer, renderCampusTable, campusDistribution } from './colleges.js';
 
 const status = document.querySelector('#map-status');
 const interactiveAtlas = new AtlasExplorer();
 const format = (value) => value === null ? 'Unavailable' : value.toLocaleString('en-US');
-const countBins = [
-  { max: 2000, color: '#eadfca', label: 'Under 2,000' },
-  { max: 4000, color: '#d9bd91', label: '2,000–3,999' },
-  { max: 6000, color: '#c08b61', label: '4,000–5,999' },
-  { max: 8000, color: '#a65c3e', label: '6,000–7,999' },
-  { max: Infinity, color: '#743b30', label: '8,000 or more' },
-];
-const changeBins = [
-  { max: 0, color: '#547f8b', label: 'Decrease' },
-  { max: 25, color: '#eee4cb', label: '0–<25%' },
-  { max: 50, color: '#dfbb8d', label: '25–<50%' },
-  { max: 100, color: '#c77b50', label: '50–<100%' },
-  { max: Infinity, color: '#9b402e', label: '100% or more' },
-];
 const binsFor = (slide) => slide.dataset.metric === RATE_METRIC ? RATE_BINS : slide.id === 'change' ? changeBins : countBins;
 const colorFor = (value, bins) => value === null ? '#cccccc' : bins.find((bin) => value < bin.max).color;
 
@@ -30,8 +19,13 @@ function renderLegend(slide) {
   document.querySelector('#legend-title').textContent = isCollege ? (metric === 'institution_type' ? 'CUNY institution type' : metrics[metric].title) : slide.dataset.metric === RATE_METRIC ? 'AFC estimated share · 2023–24 (ranges)' : slide.id === 'change' ? 'Change in reported count (%)' : `Reported students · ${slide.dataset.year}`;
   const items = document.querySelector('#legend-items');
   items.replaceChildren();
+  if (!isCollege && slide.dataset.metric.startsWith('homeless_')) {
+    const note = document.createElement('p'); note.className = 'size-key'; note.textContent = 'Circle area is proportional to reported count, with the same size scale in every year. Anchors are inside reference districts, not student locations.'; items.append(note);
+    for (const count of [2000, 8000]) { const key = document.createElement('div'); key.className = 'count-size-key'; const circle = document.createElement('span'); circle.className = 'count-size-swatch'; const diameter = 2 * countRadius(count); circle.style.width = `${diameter}px`; circle.style.height = `${diameter}px`; key.append(circle, document.createTextNode(count.toLocaleString('en-US'))); items.append(key); }
+  }
   document.querySelector('.legend small').textContent = isCollege ? 'Campus locations · not student residences' : slide.dataset.metric === RATE_METRIC ? 'AFC published analysis · current reference boundaries' : 'Reporting LEAs · not residence locations';
   document.querySelector('#map-method-text').textContent = isCollege ? 'Campus locations, not residences. Spring 2024 degree-seeking undergraduate surveys ask about the past 12 months. 19 campuses have central-dashboard results; seven institution records have no separate undergraduate result. Survey differences are descriptive, not significance tests.' : slide.dataset.metric === RATE_METRIC ? `${RATE_NOTE} DCP 2026 reference boundaries; historical consistency not established.` : GEOGRAPHY_NOTE;
+  if (isCollege && metric === 'housing_insecurity_pct') { const note = document.createElement('p'); note.className = 'size-key'; note.textContent = document.querySelector('#campus-color-mode').value === 'continuous' ? 'Continuous color, fixed 0–100%. Display ranges are descriptive, not risk thresholds.' : 'Four descriptive display ranges, not risk thresholds.'; items.append(note); }
   const entries = isCollege ? metric === 'institution_type' ? Object.entries(typeColors).map(([label, color]) => ({ label, color })) : [...metrics[metric].bins, { color: '#89918e', label: 'No separate survey result' }] : [...binsFor(slide), { color: '#cccccc', label: 'Unavailable' }];
   for (const bin of entries) {
     const row = document.createElement('div');
@@ -41,7 +35,7 @@ function renderLegend(slide) {
     swatch.style.backgroundColor = bin.color;
     swatch.setAttribute('aria-hidden', 'true');
     row.append(swatch, document.createTextNode(bin.label));
-    items.append(row);
+    if (isCollege || !slide.dataset.metric.startsWith('homeless_')) items.append(row);
   }
 }
 
@@ -146,6 +140,7 @@ if (typeof L === 'undefined') {
   fetch('data/nyc-student-homelessness-districts.geojson').then((response) => response.json()).then((collection) => { renderTable(collection); renderCharts(collection); }).catch(() => {});
 } else {
   const map = L.map('map', { scrollWheelZoom: false }).setView([40.72, -73.94], 10);
+  addOrientation(map);
   map.attributionControl.addAttribution('Boundaries: <a href="https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u">NYC DCP</a>');
   // A quiet coordinate grid keeps the actual district geometry at the center.
   // No decorative paths represent student journeys or inferred movement.
@@ -170,15 +165,10 @@ if (typeof L === 'undefined') {
   for (const slide of slides) {
     if (slide.dataset.layer === 'colleges') {
       slideOptions[slide.id] = {
-        pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
-          radius: feature.properties[explorer.metric] === null ? 6 : 9,
-          color: '#ffffff', weight: 2, fillColor: collegeColor(feature.properties, explorer.metric), fillOpacity: 0.95,
+        createLayer: (collection) => campusLayer(collection, {
+          metric: explorer.metric, mode: document.querySelector('#campus-color-mode').value,
+          onSelect: (feature) => explorer.select(feature, false),
         }),
-        onEachFeature: (feature, layer) => {
-          layer.bindTooltip(feature.properties.name);
-          layer.bindPopup(() => { const card = campusCard(feature.properties); card.append(exploreButton('colleges', feature.id)); return card; }, { maxWidth: 310 });
-          layer.on('click', () => explorer.select(feature, false));
-        },
       };
       continue;
     }
@@ -197,6 +187,11 @@ if (typeof L === 'undefined') {
       },
     };
   }
+  for (const slide of slides) {
+    if (slide.dataset.layer === 'colleges') continue;
+    const options = slideOptions[slide.id];
+    options.createLayer = (collection) => districtLayer(collection, options, slide.dataset.metric);
+  }
   deck = new SlideDeck(document.querySelector('.slide-section'), slides, map, slideOptions);
   document.addEventListener('storyslide', ({ detail }) => {
     activeSlide = detail.slide;
@@ -206,6 +201,7 @@ if (typeof L === 'undefined') {
     }
     if (activeSlide.dataset.layer === 'colleges') {
       if (districtBackdrop) { districtBackdrop.addTo(map); districtBackdrop.bringToBack(); }
+      renderCampusTable(detail.collection);
       if (!explorer.collection) explorer.setData(detail.collection);
       else explorer.apply();
       if (activeSlide.dataset.campus) {
@@ -235,6 +231,7 @@ if (typeof L === 'undefined') {
       style: (feature) => ({ color: '#f9f3e7', weight: 1, fillColor: colorFor(feature.properties[slide.dataset.metric], countBins), fillOpacity: 0.82 }),
       onEachFeature: (feature, layer) => { layer.bindTooltip(`District ${feature.properties.district}: ${format(feature.properties[slide.dataset.metric])} students`); layer.bindPopup(popup(feature.properties)); },
     };
+    options.createLayer = (collection) => districtLayer(collection, options, slide.dataset.metric);
     deck.updateDataLayer(districtData, options);
     renderLegend(slide);
     document.querySelector('#year-explorer-note').textContent = `Exploring ${slide.dataset.year} on the map. Chapter text remains the 2021–22 baseline. Scrolling to another chapter restores its map.`;
@@ -265,6 +262,7 @@ if (typeof L === 'undefined') {
     deck.calcCurrentSlideIndex();
     deck.syncMapToCurrentSlide();
   });
+  loadData('cuny-colleges.geojson').then(renderCampusTable).catch(() => { document.querySelector('#campus-table-status').textContent = 'Campus table could not load. Use the campus CSV link below.'; });
   deck.calcCurrentSlideIndex();
   updateProgress();
 }

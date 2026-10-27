@@ -1,14 +1,19 @@
 {
   "name": "story-map-project",
   "version": "1.0.0",
-  "description": "* [_What's in a Vacant Lot_](examples/Vacant_Lots_AdrianLeon/), Adrián León, Max Masuda-Farkas, and Xuezhu Zhao * [_Surveillance in New Orleans_](examples/NoLA_Surveillance_BrianaCervantes/), Briana Cervantes * [_A Spatial History of House Music_](examples/House_Music_MarlanaZink/), Marlana Zink",
+  "description": "A geospatial story map of student homelessness, housing stability and educational continuity in New York City.",
   "main": "index.js",
   "type": "module",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "python3 scripts/audit_evidence.py && node --test tests/*.test.js && npm run lint",
+    "lint": "eslint . && stylelint '**/*.css'",
+    "test:browser": "node scripts/check-browser.mjs",
+    "validate:geometry": "python3 scripts/validate_geometry.py",
+    "metadata": "python3 scripts/build_release_metadata.py",
+    "start": "python3 -m http.server 8000"
   },
   "author": "",
   "license": "ISC",

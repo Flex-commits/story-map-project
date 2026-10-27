@@ -1,22 +1,11 @@
+import { districtLayer, addOrientation } from './map-layers.js';
+import { COUNT_BINS, CHANGE_BINS, countRadius, measureMetadata } from './cartography.js';
+import { loadData } from './data.js';
 import { RATE_METRIC, RATE_BINS, RATE_NOTE, GEOGRAPHY_NOTE } from './evidence.js';
-import { campusCard, collegeColor, metrics, typeColors, missingCollegeValue } from './colleges.js';
+import { campusCard, collegeColor, metrics, typeColors, missingCollegeValue, campusLayer, campusDistribution } from './colleges.js';
 
 const YEARS = ['2021_22', '2022_23', '2023_24'];
 const BOROUGHS = { 'NEW YORK': 'Manhattan', 'BRONX': 'Bronx', 'KINGS': 'Brooklyn', 'QUEENS': 'Queens', 'RICHMOND': 'Staten Island' };
-const COUNT_BINS = [
-  { max: 2000, color: '#eadfca', label: 'Under 2,000' },
-  { max: 4000, color: '#d9bd91', label: '2,000–3,999' },
-  { max: 6000, color: '#c08b61', label: '4,000–5,999' },
-  { max: 8000, color: '#a65c3e', label: '6,000–7,999' },
-  { max: Infinity, color: '#743b30', label: '8,000+' },
-];
-const CHANGE_BINS = [
-  { max: 0, color: '#547f8b', label: 'Decrease' },
-  { max: 25, color: '#eee4cb', label: '0–<25%' },
-  { max: 50, color: '#dfbb8d', label: '25–<50%' },
-  { max: 100, color: '#c77b50', label: '50–<100%' },
-  { max: Infinity, color: '#9b402e', label: '100%+' },
-];
 const fmt = (value) => value === null || value === undefined ? 'Unavailable' : Number(value).toLocaleString('en-US');
 const element = (tag, className, text) => {
   const node = document.createElement(tag);
@@ -38,6 +27,9 @@ const download = (rows, filename) => {
 export class AtlasExplorer {
   constructor() {
     this.dialog = document.querySelector('#explore-dialog');
+    const compact = matchMedia('(max-width: 760px)');
+    const resizeKey = () => { document.querySelector('#explorer-key').open = !compact.matches; };
+    resizeKey(); compact.addEventListener('change', resizeKey);
     this.data = null;
     this.map = null;
     this.geoLayer = null;
@@ -49,8 +41,14 @@ export class AtlasExplorer {
     this.previousFocus = null;
     this.loading = null;
     this.colors = ['#a45432', '#267b91', '#77558e'];
-    this.controls = Object.fromEntries(['search', 'borough', 'metric', 'year', 'sort', 'type', 'verified', 'support', 'labels', 'evidence-status'].map((name) => [name, document.querySelector(`#atlas-${name}`)]));
+    this.controls = Object.fromEntries(['search', 'borough', 'metric', 'year', 'sort', 'type', 'verified', 'support', 'labels', 'evidence-status', 'color-mode'].map((name) => [name, document.querySelector(`#atlas-${name}`)]));
     document.querySelectorAll('[data-open-explorer]').forEach((button) => button.addEventListener('click', () => this.open()));
+    document.querySelectorAll('[data-map-task]').forEach((button) => button.addEventListener('click', () => {
+      const task = button.dataset.mapTask; this.switchLayer(task === 'colleges' ? 'colleges' : 'districts', false);
+      this.controls.year.value = '2'; this.updateTabs();
+      this.controls.metric.value = task === 'rates' ? RATE_METRIC : task === 'colleges' ? 'homelessness_pct' : 'homeless_2023_24';
+      this.render(); this.fit();
+    }));
     document.querySelector('#atlas-close').addEventListener('click', () => this.dialog.close());
     this.dialog.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') { event.preventDefault(); this.dialog.close(); }
@@ -81,10 +79,10 @@ export class AtlasExplorer {
       requestAnimationFrame(() => { this.map?.invalidateSize(); this.fit(); });
     });
     document.querySelector('#atlas-export').addEventListener('click', () => {
-      download(this.filtered.map((feature) => ({ ...feature.properties, map_measure: this.metric(), map_value: this.metric() === RATE_METRIC ? feature.properties.afc_rate_band_label : this.value(feature) })), `nyc-${this.layer}-filtered.csv`);
+      download(this.filtered.map((feature) => ({ ...feature.properties, ...measureMetadata(this.metric()), geometry_vintage: this.layer === 'districts' ? 'DCP 26b (2026); documented display derivative' : 'Official CUNY institution point; retrieved 2026-10-24', metadata_file: 'data/release-metadata.json', map_measure: this.metric(), map_value: this.metric() === RATE_METRIC ? feature.properties.afc_rate_band_label : this.value(feature) })), `nyc-${this.layer}-filtered.csv`);
     });
     document.querySelector('#atlas-export-pins').addEventListener('click', () => {
-      download(this.features().filter((feature) => this.pins.includes(feature.id)).map((feature) => feature.properties), `nyc-${this.layer}-comparison.csv`);
+      download(this.features().filter((feature) => this.pins.includes(feature.id)).map((feature) => ({ ...feature.properties, data_release: 'geospatial-2026-10-27', metadata_file: 'data/release-metadata.json' })), `nyc-${this.layer}-comparison.csv`);
     });
     document.querySelector('#atlas-share').addEventListener('click', () => this.share());
     document.querySelector('#atlas-share-url').addEventListener('focus', (event) => event.target.select());
@@ -102,15 +100,12 @@ export class AtlasExplorer {
     const message = document.querySelector('#atlas-message');
     message.textContent = 'Loading the exploration workspace…';
     try {
-      if (!this.loading) this.loading = Promise.all(['nyc-student-homelessness-districts.geojson', 'cuny-colleges.geojson'].map(async (filename) => {
-        const response = await fetch(`data/${filename}`);
-        if (!response.ok) throw new Error('Data unavailable');
-        return response.json();
-      })).catch((error) => { this.loading = null; throw error; });
+      if (!this.loading) this.loading = Promise.all(['nyc-student-homelessness-districts.geojson', 'cuny-colleges.geojson'].map(loadData)).catch((error) => { this.loading = null; throw error; });
       this.data = await this.loading;
       if (!this.dialog.open) return;
       if (!this.map) {
         this.map = L.map('explore-map', { scrollWheelZoom: false, zoomSnap: 0.25 }).setView([40.72, -73.94], 10);
+        addOrientation(this.map);
         this.map.attributionControl.addAttribution('Boundaries: NYC DCP · Campus locations: NY Open Data');
       }
       if (options.shared) this.restore(options.shared);
@@ -153,7 +148,7 @@ export class AtlasExplorer {
   }
 
   color(feature) {
-    if (this.layer === 'colleges') return collegeColor(feature.properties, this.metric());
+    if (this.layer === 'colleges') return collegeColor(feature.properties, this.metric(), this.controls['color-mode'].value);
     const value = this.value(feature);
     return value === null ? '#89918e' : this.bins().find((bin) => value < bin.max).color;
   }
@@ -188,7 +183,7 @@ export class AtlasExplorer {
     const old = this.controls.metric.value;
     const choices = college
       ? [
-          ['homelessness_pct', 'Homelessness · 2024 (%)'], ['housing_insecurity_pct', 'Housing insecurity · 2024 (%)'],
+          ['homelessness_pct', 'Homelessness · 2024 (%)'], ['housing_insecurity_pct', 'CUNY housing insecurity scale · 2024 (%)'],
           ['rent_increase_difficulty_pct', 'Rent increase difficulty · 2024 (%)'], ['institution_type', 'Institution type'],
         ]
       : [[`homeless_${YEARS[Number(this.controls.year.value)]}`, 'Reported count'], ['change_pct_2021_22_to_2023_24', 'Count change · 2021–24 (%)'], [RATE_METRIC, 'AFC share · 2023–24 (ranges)']];
@@ -200,7 +195,7 @@ export class AtlasExplorer {
   switchLayer(layer, render = true) {
     this.pause(); this.layer = layer; this.pins = []; this.selected = null; this.activeBin = null;
     this.controls.search.value = ''; this.controls.borough.value = '';
-    this.controls.verified.checked = false; this.controls.support.checked = false; this.controls.type.value = ''; this.controls['evidence-status'].value = '';
+    this.controls['color-mode'].value = 'ranges'; this.controls.verified.checked = false; this.controls.support.checked = false; this.controls.type.value = ''; this.controls['evidence-status'].value = '';
     this.updateTabs();
     if (render && this.data) { this.render(); this.fit(); }
   }
@@ -261,24 +256,36 @@ export class AtlasExplorer {
     this.geoLayer?.remove();
     if (this.layer === 'colleges' && !this.backdrop) this.backdrop = L.geoJSON(this.data[0], { interactive: false, style: { color: '#94a18f', weight: 0.6, fillColor: '#d7d0bf', fillOpacity: 0.3 } });
     if (this.layer === 'colleges') { this.backdrop.addTo(this.map); this.backdrop.bringToBack(); } else this.backdrop?.remove();
-    this.geoLayer = L.geoJSON({ type: 'FeatureCollection', features: this.filtered }, {
-      style: (feature) => this.style(feature),
-      pointToLayer: (feature, latlng) => L.circleMarker(latlng, { ...this.style(feature), radius: this.selected === feature.id ? 11 : 7 }),
-      onEachFeature: (feature, layer) => {
-        const value = this.value(feature);
-        const text = `${this.name(feature)} · ${this.displayValue(feature)}`;
-        const label = this.controls.labels.checked && this.layer === 'districts' ? `D${feature.id}` : text;
-        layer.bindTooltip(label, { permanent: this.controls.labels.checked, direction: 'top', className: 'atlas-feature-label' });
-        layer.on('click', () => this.select(feature.id));
-        layer.on('mouseover', () => layer.setStyle({ weight: 3, color: '#152f36' }));
-        layer.on('mouseout', () => layer.setStyle(this.style(feature)));
-      },
-    }).addTo(this.map);
+    if (this.layer === 'colleges') {
+      this.geoLayer = campusLayer({ type: 'FeatureCollection', features: this.filtered }, {
+        metric: this.metric(), mode: this.controls['color-mode'].value, selected: this.selected,
+        labels: this.controls.labels.checked, style: (feature) => this.style(feature),
+        onSelect: (feature) => { this.selected = feature.id; this.renderList(); this.renderDetail(); },
+      }).addTo(this.map);
+    } else {
+      this.geoLayer = districtLayer({ type: 'FeatureCollection', features: this.filtered }, {
+        style: (feature) => this.style(feature),
+        pointToLayer: (feature, latlng) => L.circleMarker(latlng, { ...this.style(feature), radius: this.selected === feature.id ? 11 : 7 }),
+        onEachFeature: (feature, layer) => {
+          const value = this.value(feature);
+          const text = `${this.name(feature)} · ${this.displayValue(feature)}`;
+          const label = this.controls.labels.checked && this.layer === 'districts' ? `D${feature.id}` : text;
+          layer.bindTooltip(label, { permanent: this.controls.labels.checked, direction: 'top', className: 'atlas-feature-label' });
+          layer.on('click', () => this.select(feature.id));
+          layer.on('mouseover', () => layer.setStyle({ weight: 3, color: '#152f36' }));
+          layer.on('mouseout', () => layer.setStyle(this.style(feature)));
+        },
+      }, this.metric()).addTo(this.map);
+    }
     document.querySelector('#atlas-map-heading').textContent = this.layer === 'colleges' ? 'CUNY campus evidence · spring 2024' : this.metric() === RATE_METRIC ? 'AFC estimated share · 2023–24 (published ranges)' : this.metric().startsWith('change_') ? 'Change in counts · 2021–22 to 2023–24' : `Reported students · ${YEARS[Number(this.controls.year.value)].replace('_', '–')}`;
   }
 
   renderLegend() {
     const container = document.querySelector('#atlas-legend'); container.replaceChildren();
+    if (this.layer === 'districts' && this.metric().startsWith('homeless_')) {
+      container.append(element('p', 'size-key', 'Circle area is proportional to reported count, with the same scale in every year. Anchors are not student locations. The buttons filter count ranges.'));
+      for (const count of [2000, 8000]) { const key = element('div', 'count-size-key'); const circle = element('span', 'count-size-swatch'); circle.style.width = `${2 * countRadius(count)}px`; circle.style.height = `${2 * countRadius(count)}px`; key.append(circle, document.createTextNode(fmt(count))); container.append(key); }
+    }
     const bins = [...this.bins(), { color: '#89918e', label: this.layer === 'colleges' ? 'No separate result' : 'Unavailable' }];
     bins.forEach((bin, index) => {
       const binId = index === bins.length - 1 ? -1 : index;
@@ -289,6 +296,9 @@ export class AtlasExplorer {
       button.addEventListener('click', () => { this.activeBin = this.activeBin === binId ? null : binId; this.render(); this.fit(); });
       container.append(button);
     });
+    if (this.layer === 'colleges' && this.metric() === 'housing_insecurity_pct' && this.controls['color-mode'].value === 'continuous') {
+      const ramp = element('p', 'continuous-key', 'Continuous color · 0% → 100%. Legend filters still use the published-value display ranges.'); container.prepend(ramp);
+    }
     if (this.activeBin !== null) {
       const clear = element('button', 'atlas-legend-button', 'Show all colors ×'); clear.type = 'button';
       clear.addEventListener('click', () => { this.activeBin = null; this.render(); this.fit(); }); container.append(clear);
@@ -315,6 +325,8 @@ export class AtlasExplorer {
       pin.addEventListener('click', () => this.pin(feature.id));
       row.append(select, pin); container.append(row);
     }
+    document.querySelector('#atlas-color-mode-label').hidden = this.layer !== 'colleges' || this.metric() !== 'housing_insecurity_pct';
+    document.querySelector('#atlas-distribution').replaceChildren(...(this.layer === 'colleges' && this.metric() !== 'institution_type' ? [campusDistribution({ features: this.filtered }, this.metric(), (feature) => this.select(feature.id, true))] : []));
     if (!this.filtered.length) container.append(element('p', '', 'No matches. Clear filters or select “Reset exploration.”'));
   }
 
@@ -322,7 +334,7 @@ export class AtlasExplorer {
     this.selected = id; this.renderMap(); this.renderList(); this.renderDetail();
     if (move) {
       document.querySelector(`[data-feature-id="${id}"] .atlas-result-select`)?.focus({ preventScroll: true });
-      const layers = this.geoLayer.getLayers().filter((layer) => layer.feature.id === id);
+      const layers = this.geoLayer.getLayers().filter((layer) => (layer.groupFeatures || [layer.feature]).some((feature) => feature?.id === id));
       if (layers.length) this.map.fitBounds(L.featureGroup(layers).getBounds(), { padding: [40, 40], maxZoom: 13, animate: !matchMedia('(prefers-reduced-motion: reduce)').matches });
     }
   }
@@ -410,7 +422,7 @@ export class AtlasExplorer {
   async share() {
     const url = new URL(location.href); const params = new URLSearchParams();
     params.set('explore', '1'); params.set('layer', this.layer); params.set('year', this.controls.year.value); params.set('metric', this.metric());
-    for (const name of ['search', 'borough', 'sort', 'type', 'evidence-status']) if (this.controls[name].value) params.set(name, this.controls[name].value);
+    for (const name of ['search', 'borough', 'sort', 'type', 'evidence-status', 'color-mode']) if (this.controls[name].value) params.set(name, this.controls[name].value);
     for (const name of ['verified', 'support', 'labels']) if (this.controls[name].checked) params.set(name, '1');
     if (this.activeBin !== null) params.set('bin', String(this.activeBin));
     if (this.selected !== null) params.set('selected', String(this.selected));
@@ -425,7 +437,7 @@ export class AtlasExplorer {
     this.controls.year.value = ['0', '1', '2'].includes(params.get('year')) ? params.get('year') : '2';
     this.updateTabs();
     if ([...this.controls.metric.options].some((option) => option.value === params.get('metric'))) this.controls.metric.value = params.get('metric');
-    for (const name of ['search', 'borough', 'sort', 'type', 'evidence-status']) {
+    for (const name of ['search', 'borough', 'sort', 'type', 'evidence-status', 'color-mode']) {
       const control = this.controls[name]; const value = params.get(name) ?? '';
       if (name === 'search' || [...control.options].some((option) => option.value === value)) control.value = value;
     }

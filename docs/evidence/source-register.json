@@ -30,7 +30,7 @@
       "id": "dcp_boundaries",
       "url": "https://data.cityofnewyork.us/City-Government/School-Districts/8ugf-3d8u",
       "use": "26b (2026) reference polygons",
-      "check": "IDs and ring closure checked. Historical archive inaccessible; no stability claim."
+      "check": "Source and original derivative retained; display derivative repairs documented validity defects. All32 display features validate; small intersections recorded; coverage gaps and historical equivalence unresolved. See geometry-validation.json."
     },
     {
       "id": "cuny_central",
@@ -99,5 +99,6 @@
       "use": "Opening citywide 154,000+ / nearly one in seven; nearly65,000 sheltered,82,000+ doubled up; shares53/42/5",
       "check": "Original PDF page1 and publisher publication page verified. Includes NYCPS and charters, cumulative-enrollment rates. Later period than mapped district workbook."
     }
-  ]
+  ],
+  "spatial_reviewed_on": "2026-10-27"
 }

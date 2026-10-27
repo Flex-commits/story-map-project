@@ -4,6 +4,7 @@ import stylistic from '@stylistic/eslint-plugin';
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
+  { files: ['tests/**/*.js', 'scripts/**/*.mjs'], languageOptions: { globals: globals.node } },
   stylistic.configs.customize({
     indent: 2,
     quotes: 'single',

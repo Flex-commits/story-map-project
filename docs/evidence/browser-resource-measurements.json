@@ -1,0 +1,23 @@
+{
+  "environment": "Local Python HTTP server, headless Chrome desktop; no network throttling. Not a mobile-network benchmark or a before/after field study.",
+  "resources": [
+    {
+      "file": "cuny-colleges.geojson",
+      "duration_ms": 4,
+      "transfer_bytes": 58991,
+      "decoded_bytes": 58691
+    },
+    {
+      "file": "nyc-district-display.geojson.gz",
+      "duration_ms": 8,
+      "transfer_bytes": 1363746,
+      "decoded_bytes": 1363446
+    },
+    {
+      "file": "district-symbol-anchors.json",
+      "duration_ms": 2,
+      "transfer_bytes": 2250,
+      "decoded_bytes": 1950
+    }
+  ]
+}

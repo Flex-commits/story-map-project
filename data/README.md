@@ -69,3 +69,11 @@ Campus support links are descriptions, not verified availability, eligibility, o
 - [CUNY resource centers](https://www.cuny.edu/about/administration/offices/student-affairs/programs-services/cuny-resource-centers/): published descriptions of assistance, not measured service delivery.
 
 K–12 and college data are not longitudinally linked. No personal residence or travel path is mapped. Full third-party PDF text is not redistributed; citations and document hashes are retained. No interviews or outreach have been conducted.
+
+## Validated display geometry and release metadata — October 27, 2026
+
+The original files above remain unchanged. The maps load `nyc-district-display.geojson` (or its losslessly compressed `.gz` copy) and `district-symbol-anchors.json`. `scripts/validate_geometry.py` checks original source parts and the earlier rounded derivative, applies explicitly recorded validity repairs and dissolves overlapping parts, then verifies all32 display geometries. No simplification is used. Count values and identifiers are unchanged.
+
+Source ring defects affect17 and24; combined parts affect10; rounding additionally affects25 in the original derived file. Detailed causes, small inter-district intersections, software versions, source hashes, and the unassessed coverage/historical questions are recorded in [geometry-validation.json](../docs/evidence/geometry-validation.json). The display derivative is not a replacement official boundary release. Representative-point anchors are symbol placements inside the validated polygons, not student locations.
+
+The [release metadata](release-metadata.json) records source periods, hashes, missingness, and third-party source rights. The [measure dictionary](../docs/measure-dictionary.md) distinguishes counts, percentage ranges, survey estimates and the central housing scale. Campus dot charts use an alphabetical order and fixed0–100% axis; four housing-scale color ranges are descriptive, not risk classes.

@@ -1,3 +1,4 @@
+import { loadData } from './data.js';
 /** Adapted from templates/scrollytelly/js/slidedeck.js.
  * Retains the template's slide/data/map model with a shared data cache,
  * stale-request protection, and responsive scroll activation.
@@ -17,18 +18,12 @@ class SlideDeck {
   async getSlideFeatureCollection(slide) {
     // All chapters share one geometry file rather than downloading duplicates.
     const url = slide.dataset.layer === 'colleges' ? 'data/cuny-colleges.geojson' : 'data/nyc-student-homelessness-districts.geojson';
-    if (!this.collections.has(url)) {
-      this.collections.set(url, fetch(url).then((response) => {
-        if (!response.ok) throw new Error(`District data returned ${response.status}`);
-        return response.json();
-      }));
-    }
-    return this.collections.get(url);
+    return loadData(url.replace('data/', ''));
   }
 
   updateDataLayer(collection, options) {
     this.dataLayer.clearLayers();
-    return L.geoJSON(collection, options).addTo(this.dataLayer);
+    return (options.createLayer ? options.createLayer(collection) : L.geoJSON(collection, options)).addTo(this.dataLayer);
   }
 
   async syncMapToSlide(slide) {
@@ -40,7 +35,7 @@ class SlideDeck {
       const layer = this.updateDataLayer(collection, options);
       const district = Number(slide.dataset.district);
       const campus = Number(slide.dataset.campus);
-      const focusLayer = district || campus ? L.featureGroup(layer.getLayers().filter((item) => district ? item.feature.properties.district === district : item.feature.properties.campus_id === campus)) : layer;
+      const focusLayer = district || campus ? L.featureGroup(layer.getLayers().filter((item) => district ? item.feature?.properties.district === district : (item.groupFeatures || [item.feature]).some((feature) => feature?.properties.campus_id === campus))) : layer;
       const mobile = window.matchMedia('(max-width: 760px)').matches;
       this.map.invalidateSize();
       this.map.stop();

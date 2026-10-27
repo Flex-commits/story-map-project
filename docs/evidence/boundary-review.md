@@ -22,3 +22,7 @@ A full area/interior-boundary comparison requires the actual archived releases. 
 ## Draft archive request — not sent
 
 Please provide archived NYC community school district polygons and change notes covering school years 2021–22, 2022–23, and 2023–24, with release dates, CRS, and any changes in district assignment. We are using DCP 26b as a reference layer and need to establish whether internal district boundaries changed during the study period.
+
+## October 27 topology update
+
+A new Shapely/PROJ review distinguishes source, combination, and rounding defects. Original downloaded and derived files remain unchanged; a separately named display derivative repairs source polygon parts and dissolves within-district overlaps. All32 display features validate. The [report](geometry-validation.json) records the source defects, four invalid features in the earlier derivative, operations, interior anchors, small inter-district intersections and file hashes. No simplification is used. An independent coverage mask and archived releases remain unavailable, so gap completeness and historical equivalence are still unestablished. Geometry validity does not resolve either question.
