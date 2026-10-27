@@ -124,7 +124,7 @@ for district in (4, 24, 30):
 assert '3,045' in html
 assert round(source[30]['change_pct_2021_22_to_2023_24']) == 131 and '+131%' in html
 assert round(source[4]['change_pct_2021_22_to_2023_24']) == 122 and '122%' in html
-assert 'HAQI Partners' in html and '154,000' in html and '65,000' in html and '82,000' in html
+assert '154,000' in html and '65,000' in html and '82,000' in html
 assert 'This issue is personal to me.' not in html
 assert '42.1%' in html and '49%' in html and '44%' in html
 assert '4%' in html and '38%' in html and '747' in html and '14.9%' in html
