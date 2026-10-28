@@ -64,76 +64,8 @@ export function campusCard(properties) {
   return card;
 }
 
-export class CollegeExplorer {
-  constructor(map, onChange) {
-    this.map = map;
-    this.onChange = onChange;
-    this.metric = 'homelessness_pct';
-    this.collection = null;
-    this.filtered = { type: 'FeatureCollection', features: [] };
-    this.form = document.querySelector('#college-filters');
-    this.form.addEventListener('submit', (event) => event.preventDefault());
-    this.form.addEventListener('input', () => this.apply());
-    this.form.addEventListener('reset', () => setTimeout(() => this.apply(), 0));
-  }
-
-  setData(collection) {
-    this.collection = collection;
-    this.apply();
-  }
-
-  select(feature, move = true) {
-    document.querySelector('#campus-detail').replaceChildren(campusCard(feature.properties));
-    if (move) {
-      const [longitude, latitude] = feature.geometry.coordinates;
-      this.map.flyTo([latitude, longitude], 12, { animate: !matchMedia('(prefers-reduced-motion: reduce)').matches });
-      document.dispatchEvent(new CustomEvent('campusselect', { detail: feature }));
-    }
-  }
-
-  apply() {
-    if (!this.collection) return;
-    this.metric = document.querySelector('#campus-metric').value;
-    const search = document.querySelector('#campus-search').value.trim().toLowerCase();
-    const borough = document.querySelector('#campus-borough').value;
-    const verified = document.querySelector('#campus-verified').checked;
-    const review = document.querySelector('#campus-evidence-status').value;
-    this.filtered = { type: 'FeatureCollection', features: this.collection.features.filter(({ properties: p }) => {
-      return (!review || p.evidence_status === review) && (!borough || p.borough === borough)
-        && (!search || `${p.name} ${p.borough} ${p.address}`.toLowerCase().includes(search))
-        && (!verified || (this.metric === 'institution_type' ? p.survey_year !== null : p[this.metric] !== null));
-    }) };
-    const known = this.collection.features.filter((feature) => this.metric === 'institution_type' ? feature.properties.survey_year !== null : feature.properties[this.metric] !== null).length;
-    document.querySelector('#college-coverage').textContent = `${known} of ${this.collection.features.length} institution records have verified ${this.metric === 'institution_type' ? 'campus survey evidence' : 'values for this measure'}.`;
-    document.querySelector('#campus-result-count').textContent = `${this.filtered.features.length} matching institutions. Select one to inspect its evidence.`;
-    const list = document.querySelector('#campus-list');
-    list.replaceChildren();
-    for (const feature of this.filtered.features) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      const dot = document.createElement('span');
-      dot.className = 'campus-dot';
-      dot.style.backgroundColor = collegeColor(feature.properties, this.metric);
-      dot.setAttribute('aria-hidden', 'true');
-      const name = document.createElement('span');
-      name.textContent = feature.properties.name;
-      const value = document.createElement('small');
-      value.textContent = this.metric === 'institution_type' ? feature.properties.institution_type : feature.properties[this.metric] === null ? missingCollegeValue(feature.properties, this.metric) : `${feature.properties[this.metric]}%`;
-      button.append(dot, name, value);
-      button.addEventListener('click', () => this.select(feature));
-      list.append(button);
-    }
-    if (!this.filtered.features.length) line(list, 'No institutions match. Clear the search or reset the filters.');
-    document.querySelector('#campus-detail').replaceChildren();
-    line(document.querySelector('#campus-detail'), 'Select a matching institution to inspect its source and methods.');
-    document.querySelector('#campus-color-mode-label').hidden = this.metric !== 'housing_insecurity_pct';
-    document.querySelector('#campus-distribution').replaceChildren(...(this.metric === 'institution_type' ? [] : [campusDistribution(this.filtered, this.metric, (feature) => this.select(feature))]));
-    this.onChange(this.filtered, this.metric);
-  }
-}
-
 /** Keep coincident official locations intact; disclose and select every record. */
-export function campusLayer(collection, { metric, mode = 'ranges', onSelect, labels = false, selected = null, style = () => ({}) }) {
+export function campusLayer(collection, { metric, mode = 'ranges', onSelect, labels = false, selected = null, style = () => ({}), card = campusCard }) {
   const groups = new Map();
   for (const feature of collection.features) {
     const key = feature.geometry.coordinates.join(',');
@@ -158,19 +90,19 @@ export function campusLayer(collection, { metric, mode = 'ranges', onSelect, lab
       marker.bindPopup(() => {
         const panel = document.createElement('div');
         const heading = document.createElement('h3'); heading.textContent = `${features.length} institutions share this location`; panel.append(heading);
-        line(panel, 'Coordinates are unchanged. Choose an institution to inspect its own evidence.');
+        line(panel, 'Choose an institution to see its figure.');
         const detail = document.createElement('div');
         for (const item of features) {
           const button = document.createElement('button'); button.type = 'button'; button.className = 'shared-campus-choice'; button.textContent = item.properties.name;
           button.addEventListener('click', () => {
             onSelect(item);
-            detail.replaceChildren(campusCard(item.properties));
+            detail.replaceChildren(card(item.properties));
           }); panel.append(button);
         }
         panel.append(detail); return panel;
       }, { maxWidth: 330 });
     } else {
-      marker.bindPopup(() => campusCard(p), { maxWidth: 330 });
+      marker.bindPopup(() => card(p), { maxWidth: 330 });
       marker.on('click', () => onSelect(feature));
     }
     return marker;
@@ -178,37 +110,11 @@ export function campusLayer(collection, { metric, mode = 'ranges', onSelect, lab
   return L.featureGroup(layers);
 }
 
-export function renderCampusTable(collection) {
-  const body = document.querySelector('#campus-table');
-  if (!body) return;
-  body.replaceChildren();
-  for (const { properties: p } of [...collection.features].sort((a, b) => a.properties.name.localeCompare(b.properties.name))) {
-    const row = document.createElement('tr');
-    const title = document.createElement('th'); title.scope = 'row'; title.textContent = p.name; row.append(title);
-    for (const field of ['borough', 'homelessness_pct', 'housing_insecurity_pct', 'rent_increase_difficulty_pct']) {
-      const cell = document.createElement('td');
-      cell.textContent = p[field] === null ? missingCollegeValue(p, field) : field === 'borough' ? p[field] : `${p[field]}%`;
-      row.append(cell);
-    }
-    const cell = document.createElement('td'); const link = document.createElement('a');
-    link.href = p.survey_source || p.review_source; link.textContent = p.survey_year ? '2024 source' : 'Coverage source'; cell.append(link); row.append(cell); body.append(row);
-  }
-}
-
-/** A fixed 0–100% axis keeps published values comparable, with text alternatives. */
-export function campusDistribution(collection, metric, onSelect) {
-  const panel = document.createElement('div'); panel.className = 'campus-distribution';
-  const description = document.createElement('p'); description.textContent = `${metrics[metric].title}. Alphabetical campus order; fixed 0–100% axis. Descriptive estimates, not a statistical ranking. Select a row to inspect its source.`; panel.append(description);
-  for (const feature of [...collection.features].sort((a, b) => a.properties.name.localeCompare(b.properties.name))) {
-    const p = feature.properties; const value = p[metric];
-    if (value === null) continue;
-    const row = document.createElement('button'); row.type = 'button'; row.className = 'distribution-row';
-    const label = document.createElement('span'); label.textContent = p.name;
-    const track = document.createElement('span'); track.className = 'distribution-track'; track.setAttribute('aria-hidden', 'true');
-    const dot = document.createElement('span'); dot.className = 'distribution-dot'; dot.style.left = `${value}%`; dot.style.backgroundColor = collegeColor(p, metric); track.append(dot);
-    const number = document.createElement('strong'); number.textContent = `${value}%`; row.append(label, track, number);
-    row.addEventListener('click', () => onSelect(feature)); panel.append(row);
-  }
-  if (!panel.querySelector('button')) line(panel, 'No published values match these filters. Missing values remain available in the institution list.');
-  return panel;
+export function compactCampusCard(p) {
+  const card = document.createElement('div'); const heading = document.createElement('h3'); heading.textContent = p.name; card.append(heading);
+  line(card, p.homelessness_pct === null ? 'No separate undergraduate survey result in the checked export. This does not mean zero.' : `${p.homelessness_pct}% reported homelessness · spring 2024, past 12 months.`);
+  if (p.homelessness_pct !== null) line(card, 'Weighted survey estimate, not a student headcount.');
+  const source = document.createElement('a'); source.href = p.survey_source || p.review_source; source.textContent = 'Survey source ↗';
+  const data = document.createElement('a'); data.href = 'data.html#campus-table'; data.textContent = 'Campus table and methods ↗';
+  card.append(source, document.createElement('br'), data); return card;
 }

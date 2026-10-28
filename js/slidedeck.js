@@ -11,7 +11,6 @@ class SlideDeck {
     this.slideOptions = slideOptions;
     this.dataLayer = L.layerGroup().addTo(map);
     this.currentSlideIndex = -1;
-    this.collections = new Map();
     this.requestIndex = 0;
   }
 
@@ -40,13 +39,15 @@ class SlideDeck {
       this.map.invalidateSize();
       this.map.stop();
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      this.map.flyToBounds(focusLayer.getBounds(), {
-        paddingTopLeft: [35, mobile ? 45 : 155],
-        paddingBottomRight: [35, mobile ? 100 : 190],
+      const cameraKey = `${slide.dataset.layer || 'districts'}:${district || campus || 'city'}:${this.map.getSize().x}:${this.map.getSize().y}`;
+      if (this.cameraKey !== cameraKey) this.map.flyToBounds(focusLayer.getBounds(), {
+        paddingTopLeft: [25, mobile ? 35 : 70],
+        paddingBottomRight: [25, mobile ? 75 : 120],
         maxZoom: district || campus ? 13 : 11,
         animate: !reducedMotion,
-        duration: 1.25,
+        duration: 0.8,
       });
+      this.cameraKey = cameraKey;
       document.querySelector('#map-status').textContent = '';
       document.body.dataset.chapter = slide.id;
       document.dispatchEvent(new CustomEvent('storyslide', { detail: { slide, collection } }));
@@ -62,7 +63,7 @@ class SlideDeck {
 
   calcCurrentSlideIndex() {
     const mobile = window.matchMedia('(max-width: 760px)').matches;
-    const threshold = mobile ? window.innerHeight * 0.43 + 100 : window.innerHeight * 0.5;
+    const threshold = mobile ? 52 + window.innerHeight * 0.37 + 70 : window.innerHeight * 0.5;
     let index = 0;
     for (let i = 0; i < this.slides.length; i++) {
       if (this.slides[i].getBoundingClientRect().top <= threshold) index = i;

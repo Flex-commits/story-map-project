@@ -112,16 +112,25 @@ class Page(HTMLParser):
                 self.references.append(value)
 
 
-page = Page()
-html = (ROOT / 'index.html').read_text()
-page.feed(html)
-assert len(page.ids) == len(set(page.ids))
-assert html.index('id="definitions"') < html.index('id="baseline"')
-for reference in page.references:
-    if reference.startswith('#'):
-        assert reference[1:] in page.ids, reference
-    elif not reference.startswith(('https:', 'http:', 'data:')):
-        assert (ROOT / reference).is_file(), reference
+main_html = (ROOT / 'index.html').read_text()
+appendix_html = (ROOT / 'data.html').read_text()
+for filename, content in [('index.html', main_html), ('data.html', appendix_html)]:
+    page = Page(); page.feed(content)
+    assert len(page.ids) == len(set(page.ids)), filename
+    for reference in page.references:
+        if reference.startswith('#'):
+            assert reference[1:] in page.ids, (filename, reference)
+        elif not reference.startswith(('https:', 'http:', 'data:')):
+            target, _, anchor = reference.partition('#')
+            assert (ROOT / target).is_file(), reference
+            if anchor and target.endswith('.html'):
+                linked = Page(); linked.feed((ROOT / target).read_text())
+                assert anchor in linked.ids, reference
+assert main_html.index('id="definitions"') < main_html.index('id="baseline"')
+assert main_html.count('<article class="slide') == 7
+assert '<dialog' not in main_html and '<form' not in main_html
+assert 'data.html' in main_html
+html = main_html + appendix_html
 assert 'I still need to confirm the original publication' not in html
 assert '67%' in html and '34%' in html and '2022–23' in html
 assert '63%' in html and '85%' in html and 'For 2023' in html
@@ -138,4 +147,4 @@ assert '4%' in html and '38%' in html and '747' in html and '14.9%' in html
 assert '2026 reference boundaries' in html
 assert 'different student populations' in html and 'do not follow the same people' in html
 assert 'I did not interview Christopher' in html
-print('PASS: source hash and 10,530-cell record; all 32 district values; 32 published rate bands; export consistency; 26 campus coordinates; 19 available / 7 outside survey statuses; survey methods; local links and HTML anchors.')
+print('PASS: source hash and 10,530-cell record; all 32 district values; 32 published rate bands; export consistency; 26 campus coordinates; 19 available / 7 outside survey statuses; survey methods; main/appendix links and anchors; seven simple chapters without a dashboard.')

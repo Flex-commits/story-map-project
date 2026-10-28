@@ -1,3 +1,11 @@
+# Current presentation — October 28, 2026
+
+The main experience is now a simple seven-chapter scrolling story, following the course examples. One map changes as readers scroll. District and campus popups show a short result and source. The dashboard dialog, filters, comparisons, color-mode switches and dot-chart controls have been removed from the reading experience. Full citations, static tables, source differences and methods are preserved on `data.html`; validated geometry and all retained data are unchanged.
+
+The October27 record below documents the previous release. Its detailed exploration-interface features have been superseded by this simpler presentation; its geometry and evidence findings remain applicable. Current checks cover chapter activation, correct years, district popups, shared-location campus selection, mobile layout, source/table links, and no-JavaScript/map-library failure fallbacks.
+
+---
+
 # Geospatial implementation record — October 27, 2026
 
 ## Implemented in this release

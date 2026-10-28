@@ -30,7 +30,7 @@ AFC's [2023–24 brief](https://advocatesforchildren.org/wp-content/uploads/2024
 - `afc_rate_band_label` is the published range: under 5%, 5–9.9%, 10–14.9%, 15–19.9%, or 20% or more.
 - `afc_rate_source` links to the source brief.
 
-The brief's rates use cumulative enrollment and include charter pupils; District 75 is excluded from district denominators. This differs from the reporting-LEA workbook coverage. These categories are not calculated by dividing workbook counts by a single-day enrollment snapshot. The rate view is fixed to 2023–24; only count views support year playback. See [enrollment decision](../docs/evidence/enrollment-decision.md).
+The brief's rates use cumulative enrollment and include charter pupils; District 75 is excluded from district denominators. This differs from the reporting-LEA workbook coverage. These categories are not calculated by dividing workbook counts by a single-day enrollment snapshot. The rate categories are retained as a separate published measure in the download; the simplified story displays counts and college homelessness. See [enrollment decision](../docs/evidence/enrollment-decision.md).
 
 ## Boundaries
 
@@ -76,4 +76,4 @@ The original files above remain unchanged. The maps load `nyc-district-display.g
 
 Source ring defects affect17 and24; combined parts affect10; rounding additionally affects25 in the original derived file. Detailed causes, small inter-district intersections, software versions, source hashes, and the unassessed coverage/historical questions are recorded in [geometry-validation.json](../docs/evidence/geometry-validation.json). The display derivative is not a replacement official boundary release. Representative-point anchors are symbol placements inside the validated polygons, not student locations.
 
-The [release metadata](release-metadata.json) records source periods, hashes, missingness, and third-party source rights. The [measure dictionary](../docs/measure-dictionary.md) distinguishes counts, percentage ranges, survey estimates and the central housing scale. Campus dot charts use an alphabetical order and fixed0–100% axis; four housing-scale color ranges are descriptive, not risk classes.
+The [release metadata](release-metadata.json) records source periods, hashes, missingness, and third-party source rights. The [measure dictionary](../docs/measure-dictionary.md) distinguishes counts, percentage ranges, survey estimates and the central housing scale. The data retains the central housing scale, rent difficulty and other checked items. The simplified story map displays campus homelessness only; the complete campus table and methods are on `data.html`.
